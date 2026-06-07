@@ -1,103 +1,64 @@
 import Link from 'next/link';
-import { Mountain, Phone, Mail, MapPin, Facebook, Instagram, Youtube } from 'lucide-react';
-
-const footerLinks = {
-    Explore: [
-        { label: 'Tours', href: '/tours' },
-        { label: 'Hotels', href: '/hotels' },
-        { label: 'Car Rentals', href: '/cars' },
-        { label: 'Custom Trips', href: '/custom-trip' },
-    ],
-    Company: [
-        { label: 'About Us', href: '#about' },
-        { label: 'Why Choose Us', href: '#why-us' },
-        { label: 'Gallery', href: '#gallery' },
-        { label: 'Contact', href: '#contact' },
-    ],
-};
+import { Mountain, Instagram, Facebook, Twitter, Send } from 'lucide-react';
 
 export default function Footer() {
     return (
-        <footer className="bg-dark text-white">
-            <div className="container-max px-6 py-16">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-                    {/* Brand */}
-                    <div>
-                        <Link href="/" className="flex items-center gap-2 mb-4 group">
-                            <div className="p-2 rounded-xl bg-gold/20">
-                                <Mountain size={20} className="text-gold" />
-                            </div>
-                            <div>
-                                <span className="block font-display font-bold text-sm">Lost in the North</span>
-                                <span className="block text-xs text-white/50">Premium Pakistan Travel</span>
-                            </div>
+        <footer className="bg-[#0a1f2a] text-white py-16">
+            <div className="container-max px-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                    {/* Brand Section */}
+                    <div className="space-y-6">
+                        <Link href="/" className="inline-block">
+                            <h2 className="font-display text-xl font-bold italic">Lost in the North</h2>
+                            <p className="text-[10px] uppercase tracking-widest text-[#D4A853] mt-1">Cunning silence and scale since 2014</p>
                         </Link>
-                        <p className="text-gray-400 text-sm leading-relaxed">
-                            Discover the breathtaking beauty of Northern Pakistan. We curate
-                            premium travel experiences that connect you with nature, culture,
-                            and adventure.
-                        </p>
-                        <div className="flex gap-3 mt-5">
-                            {[
-                                { Icon: Facebook, href: '#' },
-                                { Icon: Instagram, href: '#' },
-                                { Icon: Youtube, href: '#' },
-                            ].map(({ Icon, href }, i) => (
-                                <a
-                                    key={i}
-                                    href={href}
-                                    className="p-2 rounded-lg bg-white/5 hover:bg-gold/20 hover:text-gold transition-all"
-                                >
-                                    <Icon size={16} />
-                                </a>
-                            ))}
+                        <div className="flex gap-4">
+                            <Link href="#" className="hover:text-[#D4A853] transition-colors"><Instagram size={18} /></Link>
+                            <Link href="#" className="hover:text-[#D4A853] transition-colors"><Facebook size={18} /></Link>
+                            <Link href="#" className="hover:text-[#D4A853] transition-colors"><Twitter size={18} /></Link>
                         </div>
                     </div>
 
-                    {/* Links */}
-                    {Object.entries(footerLinks).map(([title, links]) => (
-                        <div key={title}>
-                            <h3 className="font-semibold mb-4 text-white/90 text-sm uppercase tracking-wider">
-                                {title}
-                            </h3>
-                            <ul className="space-y-2.5">
-                                {links.map((l) => (
-                                    <li key={l.href}>
-                                        <Link
-                                            href={l.href}
-                                            className="text-gray-400 hover:text-gold transition-colors text-sm"
-                                        >
-                                            {l.label}
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    ))}
-
-                    {/* Contact */}
+                    {/* Explore Section */}
                     <div>
-                        <h3 className="font-semibold mb-4 text-white/90 text-sm uppercase tracking-wider">
-                            Contact Us
-                        </h3>
-                        <div className="space-y-3">
-                            {[
-                                { Icon: Phone, text: '+92 300 0000000' },
-                                { Icon: Mail, text: 'info@lostinthenorth.pk' },
-                                { Icon: MapPin, text: 'Gilgit, Pakistan' },
-                            ].map(({ Icon, text }, i) => (
-                                <div key={i} className="flex items-center gap-3 text-sm text-gray-400">
-                                    <Icon size={15} className="text-gold shrink-0" />
-                                    <span>{text}</span>
-                                </div>
-                            ))}
+                        <h3 className="text-[10px] uppercase tracking-widest text-[#D4A853] font-bold mb-6">Explore</h3>
+                        <ul className="space-y-4 text-xs">
+                            <li><Link href="/about" className="text-gray-400 hover:text-white transition-colors">About</Link></li>
+                            <li><Link href="/tours" className="text-gray-400 hover:text-white transition-colors">Tours</Link></li>
+                            <li><Link href="/cars" className="text-gray-400 hover:text-white transition-colors font-bold text-white border-b border-white pb-0.5">Car Rental</Link></li>
+                        </ul>
+                    </div>
+
+                    {/* Support Section */}
+                    <div>
+                        <h3 className="text-[10px] uppercase tracking-widest text-[#D4A853] font-bold mb-6">Support</h3>
+                        <ul className="space-y-4 text-xs">
+                            <li><Link href="/contact" className="text-gray-400 hover:text-white transition-colors">Contact Info</Link></li>
+                            <li><Link href="/privacy" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</Link></li>
+                            <li><Link href="/track-booking" className="text-gray-400 hover:text-white transition-colors">Track My Booking</Link></li>
+                        </ul>
+                    </div>
+
+                    {/* Newsletter Section */}
+                    <div>
+                        <h3 className="text-[10px] uppercase tracking-widest text-[#D4A853] font-bold mb-6">The Arctic Dispatch</h3>
+                        <p className="text-xs text-gray-400 mb-6 leading-relaxed">Join our team of 14,372 expedition updates and exclusive digital rewards.</p>
+                        <div className="relative">
+                            <input 
+                                type="email" 
+                                placeholder="Email Address" 
+                                className="w-full bg-[#162a36] border-none rounded-sm px-4 py-3 text-xs focus:ring-1 focus:ring-[#D4A853] outline-none pr-12"
+                            />
+                            <button className="absolute right-0 top-0 h-full px-4 text-[#4fd1c5] hover:text-white transition-colors">
+                                <Send size={16} />
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <div className="border-t border-white/10 mt-12 pt-7 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-500">
-                    <p>© {new Date().getFullYear()} The Lost in the North. All rights reserved.</p>
-                    <p>Designed with ❤️ for Pakistan Tourism</p>
+                {/* Bottom Copyright */}
+                <div className="mt-20 pt-8 border-t border-white/5 flex flex-col items-center justify-center space-y-4">
+                    <p className="text-[10px] uppercase tracking-widest text-gray-500">© 2024 Lost in the North Expedition Co.</p>
                 </div>
             </div>
         </footer>

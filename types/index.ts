@@ -17,6 +17,31 @@ export interface Tour {
     updatedAt: string;
 }
 
+// ─── Trekking Types ─────────────────────────────────────────────────────────────
+export interface Trekking {
+    id: string;
+    title: string;
+    description: string;
+    price: number;
+    duration: number; // days
+    location: string;
+    image: string | null;
+    images: string[];
+    difficulty: string;
+    rating: number;
+    reviewsCount: number;
+    featured: boolean;
+    itinerary?: string; // JSON string
+    included: string[];
+    excluded: string[];
+    highlights: string[];
+    locationTags: string[];
+    maxGroupSize: number;
+    available: boolean;
+    createdAt: string;
+    updatedAt: string;
+}
+
 // ─── Hotel Types ───────────────────────────────────────────────────────────────
 export interface Hotel {
     id: string;
@@ -54,7 +79,7 @@ export interface Car {
 }
 
 // ─── Booking Types ─────────────────────────────────────────────────────────────
-export type ServiceType = 'TOUR' | 'HOTEL' | 'CAR' | 'OFFER';
+export type ServiceType = 'TOUR' | 'HOTEL' | 'CAR' | 'OFFER' | 'TREKKING';
 export type BookingStatus = 'PENDING' | 'CONFIRMED' | 'CANCELLED' | 'COMPLETED';
 export type PaymentStatus = 'PENDING' | 'COMPLETED' | 'REFUNDED' | 'FAILED';
 
@@ -73,9 +98,11 @@ export interface Booking {
     status: BookingStatus;
     paymentStatus: PaymentStatus;
     specialRequests?: string;
+    addOns: string[];
     tour?: Tour;
     hotel?: Hotel;
     car?: Car;
+    trekking?: Trekking;
     createdAt: string;
     updatedAt: string;
 }
@@ -90,6 +117,7 @@ export interface BookingFormData {
     endDate: string;
     numberOfPeople: number;
     specialRequests?: string;
+    addOns?: string[];
 }
 
 // ─── Custom Trip Types ────────────────────────────────────────────────────────
@@ -130,6 +158,7 @@ export interface LoginCredentials {
 
 export interface AuthResponse {
     token: string;
+    refreshToken: string;
     admin: Admin;
 }
 

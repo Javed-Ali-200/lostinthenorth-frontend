@@ -11,6 +11,7 @@ import { useState } from 'react';
 const navItems = [
     { label: 'Dashboard', href: '/admin', icon: LayoutDashboard },
     { label: 'Tours', href: '/admin/tours', icon: Map },
+    { label: 'Trekkings', href: '/admin/trekking', icon: Mountain },
     { label: 'Hotels', href: '/admin/hotels', icon: Hotel },
     { label: 'Cars', href: '/admin/cars', icon: Car },
     { label: 'Bookings', href: '/admin/bookings', icon: CalendarCheck },

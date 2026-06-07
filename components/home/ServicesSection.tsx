@@ -46,10 +46,10 @@ export default function ServicesSection({ tours, hotels, cars }: Props) {
                     <div className="container-max">
                         <SectionHeader
                             tag="Adventures Await"
-                            title="Featured Tours"
+                            title="Featured Expeditions"
                             subtitle="Carefully crafted journeys through the most breathtaking landscapes of Northern Pakistan."
                             href="/tours"
-                            cta="All Tours →"
+                            cta="View All →"
                         />
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                             {tours.map((tour) => (
@@ -120,6 +120,7 @@ export default function ServicesSection({ tours, hotels, cars }: Props) {
                                     type="car"
                                     image={car.images?.[0] || car.image || ''}
                                     title={car.name}
+                                    location="Gilgit-Baltistan, Pakistan"
                                     pricePerDay={car.pricePerDay}
                                     description={`${car.type} · ${car.transmission} · ${car.fuelType}`}
                                     seats={car.seats}
