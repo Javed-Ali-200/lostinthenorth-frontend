@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { hotelApi } from '@/services/api';
+import prisma from '@/lib/prisma';
 import HotelDetailClient from './HotelDetailClient';
 
 interface Props { params: Promise<{ id: string }> }
@@ -7,8 +7,9 @@ interface Props { params: Promise<{ id: string }> }
 export default async function HotelDetailPage({ params }: Props) {
     const { id } = await params;
     try {
-        const res = await hotelApi.getById(id);
-        return <HotelDetailClient hotel={res.data.data} />;
+        const hotel = await prisma.hotel.findUnique({ where: { id } });
+        if (!hotel) notFound();
+        return <HotelDetailClient hotel={hotel} />;
     } catch {
         notFound();
     }

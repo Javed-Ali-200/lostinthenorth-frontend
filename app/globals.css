@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+
 @layer base {
   :root {
     --color-teal: #0F4C5C;

@@ -1,4 +1,4 @@
-import { hotelApi } from '@/services/api';
+import prisma from '@/lib/prisma';
 import ServiceCard from '@/components/shared/ServiceCard';
 import type { Hotel } from '@/types';
 
@@ -6,8 +6,7 @@ export const metadata = { title: 'Hotels – The Lost in the North' };
 
 async function getHotels() {
     try {
-        const res = await hotelApi.getAll();
-        return res.data.data;
+        return await prisma.hotel.findMany({ orderBy: { createdAt: 'desc' } });
     } catch {
         return [];
     }
@@ -49,7 +48,6 @@ export default async function HotelsPage() {
                                     location={hotel.location}
                                     pricePerNight={hotel.pricePerNight}
                                     description={hotel.description}
-                                    rating={hotel.rating}
                                 />
                             ))}
                         </div>

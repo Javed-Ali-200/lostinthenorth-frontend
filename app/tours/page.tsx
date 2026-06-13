@@ -1,4 +1,4 @@
-import { tourApi } from '@/services/api';
+import prisma from '@/lib/prisma';
 import ServiceCard from '@/components/shared/ServiceCard';
 import type { Tour } from '@/types';
 
@@ -6,8 +6,7 @@ export const metadata = { title: 'Tours – The Lost in the North' };
 
 async function getTours() {
     try {
-        const res = await tourApi.getAll();
-        return res.data.data;
+        return await prisma.tour.findMany({ orderBy: { createdAt: 'desc' } });
     } catch {
         return [];
     }
@@ -52,7 +51,6 @@ export default async function ToursPage() {
                                     duration={tour.duration}
                                     price={tour.price}
                                     description={tour.description}
-                                    featured={tour.featured}
                                 />
                             ))}
                         </div>

@@ -1,4 +1,4 @@
-import { carApi } from '@/services/api';
+import prisma from '@/lib/prisma';
 import ServiceCard from '@/components/shared/ServiceCard';
 import type { Car } from '@/types';
 
@@ -6,8 +6,7 @@ export const metadata = { title: 'Car Rentals – The Lost in the North' };
 
 async function getCars() {
     try {
-        const res = await carApi.getAll();
-        return res.data.data;
+        return await prisma.car.findMany({ orderBy: { createdAt: 'desc' } });
     } catch {
         return [];
     }
@@ -48,8 +47,6 @@ export default async function CarsPage() {
                                     title={car.name}
                                     pricePerDay={car.pricePerDay}
                                     description={`${car.type} · ${car.transmission} · ${car.fuelType}`}
-                                    seats={car.seats}
-                                    transmission={car.transmission}
                                 />
                             ))}
                         </div>

@@ -63,7 +63,6 @@ export default function ServicesSection({ tours, hotels, cars }: Props) {
                                     duration={tour.duration}
                                     price={tour.price}
                                     description={tour.description}
-                                    featured={tour.featured}
                                 />
                             ))}
                         </div>
@@ -93,7 +92,6 @@ export default function ServicesSection({ tours, hotels, cars }: Props) {
                                     location={hotel.location}
                                     pricePerNight={hotel.pricePerNight}
                                     description={hotel.description}
-                                    rating={hotel.rating}
                                 />
                             ))}
                         </div>
@@ -123,8 +121,6 @@ export default function ServicesSection({ tours, hotels, cars }: Props) {
                                     location="Gilgit-Baltistan, Pakistan"
                                     pricePerDay={car.pricePerDay}
                                     description={`${car.type} · ${car.transmission} · ${car.fuelType}`}
-                                    seats={car.seats}
-                                    transmission={car.transmission}
                                 />
                             ))}
                         </div>

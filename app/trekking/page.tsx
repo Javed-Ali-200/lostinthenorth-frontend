@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { trekkingApi } from '@/services/api';
+import prisma from '@/lib/prisma';
 import TrekkingCard from '@/components/trekking/TrekkingCard';
 import { Search, MapPin, Check, TrendingUp, Users, Award, ShieldCheck, Star } from 'lucide-react';
 import type { Trekking } from '@/types';
@@ -8,8 +8,7 @@ export const metadata = { title: 'Trekking Expeditions – The Lost in the North
 
 async function getTrekkings() {
     try {
-        const res = await trekkingApi.getAll();
-        return res.data.data;
+        return await prisma.trekking.findMany({ orderBy: { createdAt: 'desc' } });
     } catch {
         return [];
     }

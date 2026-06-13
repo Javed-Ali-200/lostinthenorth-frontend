@@ -1,5 +1,4 @@
-import { tourApi, hotelApi, carApi } from '@/services/api';
-import type { Tour, Hotel, Car } from '@/types';
+import prisma from '@/lib/prisma';
 import HeroSection from '@/components/home/HeroSection';
 import AboutSection from '@/components/home/AboutSection';
 import ServicesSection from '@/components/home/ServicesSection';
@@ -17,16 +16,26 @@ export const metadata = {
 
 async function getData() {
   try {
-    const [toursRes, hotelsRes, carsRes] = await Promise.allSettled([
-      tourApi.getAll({ featured: 'true' }),
-      hotelApi.getAll({ available: 'true' }),
-      carApi.getAll({ available: 'true' }),
+    const [tours, hotels, cars] = await Promise.all([
+      prisma.tour.findMany({
+        where: { featured: true },
+        orderBy: { createdAt: 'desc' },
+        take: 6,
+      }),
+      prisma.hotel.findMany({
+        where: { available: true },
+        orderBy: { createdAt: 'desc' },
+        take: 6,
+      }),
+      prisma.car.findMany({
+        where: { available: true },
+        orderBy: { createdAt: 'desc' },
+        take: 6,
+      }),
     ]);
-    const tours = toursRes.status === 'fulfilled' ? toursRes.value.data.data : [];
-    const hotels = hotelsRes.status === 'fulfilled' ? hotelsRes.value.data.data : [];
-    const cars = carsRes.status === 'fulfilled' ? carsRes.value.data.data : [];
-    return { tours: tours.slice(0, 6), hotels: hotels.slice(0, 6), cars: cars.slice(0, 6) };
-  } catch {
+    return { tours, hotels, cars };
+  } catch (error) {
+    console.error('Failed to fetch homepage data:', error);
     return { tours: [], hotels: [], cars: [] };
   }
 }

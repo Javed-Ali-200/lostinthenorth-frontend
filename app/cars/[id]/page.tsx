@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { carApi } from '@/services/api';
+import prisma from '@/lib/prisma';
 import CarDetailClient from './CarDetailClient';
 
 interface Props { params: Promise<{ id: string }> }
@@ -7,8 +7,9 @@ interface Props { params: Promise<{ id: string }> }
 export default async function CarDetailPage({ params }: Props) {
     const { id } = await params;
     try {
-        const res = await carApi.getById(id);
-        return <CarDetailClient car={res.data.data} />;
+        const car = await prisma.car.findUnique({ where: { id } });
+        if (!car) notFound();
+        return <CarDetailClient car={car} />;
     } catch {
         notFound();
     }

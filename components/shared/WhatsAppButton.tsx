@@ -3,8 +3,8 @@
 import Image from 'next/image';
 
 export default function WhatsAppButton() {
-    const phoneNumber = "923355577443";
-    const message = encodeURIComponent("Welcome to PTT - Pakistan Tour and Travel! Discover the breathtaking beauty, rich culture, and vibrant history of Pakistan with us. Let’s embark on an unforgettable journey together!\n\nhttps://pakistantourntravel.com/car-rentals/hiace/");
+    const phoneNumber = "923443845506";
+    const message = encodeURIComponent("Welcome to Lost in The North! Discover the breathtaking beauty, rich culture, and vibrant history of Pakistan with us. Let’s embark on an unforgettable journey together!");
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 
     return (
