@@ -1,10 +1,18 @@
 'use client';
 
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 export default function WhatsAppButton() {
+    const pathname = usePathname();
+
+    // Avoid overlay/z-index conflicts with admin pages/modals
+    if (pathname?.startsWith('/admin')) return null;
+
     const phoneNumber = "923443845506";
-    const message = encodeURIComponent("Welcome to Lost in The North! Discover the breathtaking beauty, rich culture, and vibrant history of Pakistan with us. Let’s embark on an unforgettable journey together!");
+    const message = encodeURIComponent(
+        "Welcome to Lost in The North! Discover the breathtaking beauty, rich culture, and vibrant history of Pakistan with us. Let’s embark on an unforgettable journey together!"
+    );
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 
     return (
@@ -16,10 +24,10 @@ export default function WhatsAppButton() {
             aria-label="Let's plan a Tour! WhatsApp contact"
         >
             <div className="relative w-10 h-10">
-                <Image 
-                    src="/image/whatsapp.png" 
-                    alt="WhatsApp" 
-                    fill 
+                <Image
+                    src="/image/whatsapp.png"
+                    alt="WhatsApp"
+                    fill
                     className="object-contain"
                 />
             </div>
@@ -36,3 +44,4 @@ export default function WhatsAppButton() {
         </a>
     );
 }
+
