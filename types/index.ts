@@ -13,8 +13,8 @@ export interface Tour {
     excluded: string[];
     maxGroupSize: number;
     available: boolean;
-    createdAt: string;
-    updatedAt: string;
+    createdAt: Date | string;
+    updatedAt: Date | string;
 }
 
 // ─── Trekking Types ─────────────────────────────────────────────────────────────
@@ -38,8 +38,8 @@ export interface Trekking {
     locationTags: string[];
     maxGroupSize: number;
     available: boolean;
-    createdAt: string;
-    updatedAt: string;
+    createdAt: Date | string;
+    updatedAt: Date | string;
 }
 
 // ─── Hotel Types ───────────────────────────────────────────────────────────────
@@ -57,8 +57,8 @@ export interface Hotel {
     address?: string;
     phone?: string;
     email?: string;
-    createdAt: string;
-    updatedAt: string;
+    createdAt: Date | string;
+    updatedAt: Date | string;
 }
 
 // ─── Car Types ──────────────────────────────────────────────────────────────
@@ -74,8 +74,8 @@ export interface Car {
     transmission: string;
     fuelType: string;
     available: boolean;
-    createdAt: string;
-    updatedAt: string;
+    createdAt: Date | string;
+    updatedAt: Date | string;
 }
 
 // ─── Booking Types ─────────────────────────────────────────────────────────────
@@ -103,8 +103,8 @@ export interface Booking {
     hotel?: Hotel;
     car?: Car;
     trekking?: Trekking;
-    createdAt: string;
-    updatedAt: string;
+    createdAt: Date | string;
+    updatedAt: Date | string;
 }
 
 export interface BookingFormData {
@@ -139,8 +139,8 @@ export interface CustomTrip {
     posterImage?: string;
     hotel?: Hotel;
     car?: Car;
-    createdAt: string;
-    updatedAt: string;
+    createdAt: Date | string;
+    updatedAt: Date | string;
 }
 
 // ─── Admin Types ────────────────────────────────────────────────────────────
