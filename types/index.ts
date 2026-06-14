@@ -8,7 +8,7 @@ export interface Tour {
     location: string;
     images: string[];
     featured: boolean;
-    itinerary?: string; // JSON string
+    itinerary?: string | null; // JSON string
     included: string[];
     excluded: string[];
     maxGroupSize: number;
@@ -31,7 +31,7 @@ export interface Trekking {
     rating: number;
     reviewsCount: number;
     featured: boolean;
-    itinerary?: string; // JSON string
+    itinerary?: string | null; // JSON string
     included: string[];
     excluded: string[];
     highlights: string[];
@@ -54,9 +54,9 @@ export interface Hotel {
     rating: number;
     roomTypes: string[];
     available: boolean;
-    address?: string;
-    phone?: string;
-    email?: string;
+    address?: string | null;
+    phone?: string | null;
+    email?: string | null;
     createdAt: Date | string;
     updatedAt: Date | string;
 }
@@ -97,7 +97,7 @@ export interface Booking {
     numberOfPeople: number;
     status: BookingStatus;
     paymentStatus: PaymentStatus;
-    specialRequests?: string;
+    specialRequests?: string | null;
     addOns: string[];
     tour?: Tour;
     hotel?: Hotel;
@@ -133,10 +133,11 @@ export interface CustomTrip {
     activities: string;
     totalPrice: number;
     status: CustomTripStatus;
-    adminNotes?: string;
-    startDate?: string;
+    adminNotes?: string | null;
+    startDate?: string | null;
     numberOfPeople: number;
-    posterImage?: string;
+    posterImage?: string | null;
+    image?: string | null;
     hotel?: Hotel;
     car?: Car;
     createdAt: Date | string;
