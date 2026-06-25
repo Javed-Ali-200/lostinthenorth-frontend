@@ -2,14 +2,17 @@ import prisma from '@/lib/prisma';
 import HeroSection from '@/components/home/HeroSection';
 import AboutSection from '@/components/home/AboutSection';
 import ServicesSection from '@/components/home/ServicesSection';
+import WhyChooseUs from '@/components/home/WhyChooseUs';
+import StatsCounter from '@/components/home/StatsCounter';
 import LensSection from '@/components/home/LensSection';
 import RoadToNorth from '@/components/home/RoadToNorth';
 import ExpeditionJournals from '@/components/home/Testimonials';
 import PrimaryHubs from '@/components/home/PrimaryHubs';
+import NewsletterSection from '@/components/home/NewsletterSection';
 import CustomTripBanner from '@/components/home/CustomTripBanner';
 
 export const metadata = {
-  title: 'Lost in the North',
+  title: 'Lost in the North – Premium Travel in Northern Pakistan',
   description:
     'Discover breathtaking expeditions across Northern Pakistan. Book tours, hotels and car rentals with expert local guides.',
 };
@@ -45,7 +48,7 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* 1. Hero + Stats bar */}
+      {/* 1. Hero with search widget */}
       <HeroSection />
 
       {/* 2. About — A Journey Crafted by the Elements */}
@@ -54,19 +57,28 @@ export default async function HomePage() {
       {/* 3. Featured Expeditions (tours, hotels, cars from API) */}
       <ServicesSection tours={tours} hotels={hotels} cars={cars} />
 
-      {/* 4. Through the Lens – photo gallery */}
+      {/* 4. Why Choose Us */}
+      <WhyChooseUs />
+
+      {/* 5. Stats Counter */}
+      <StatsCounter />
+
+      {/* 6. Through the Lens – photo gallery */}
       <LensSection />
 
-      {/* 5. The Road to the North – how it works */}
+      {/* 7. The Road to the North – how it works */}
       <RoadToNorth />
 
-      {/* 6. Expedition Journals – traveler testimonials */}
+      {/* 8. Expedition Journals – traveler testimonials */}
       <ExpeditionJournals />
 
-      {/* 7. Primary Hubs – destination cards */}
+      {/* 9. Primary Hubs – destination cards */}
       <PrimaryHubs />
 
-      {/* 8. Stay Lost CTA banner */}
+      {/* 10. Newsletter Signup */}
+      <NewsletterSection />
+
+      {/* 11. Custom Trip CTA banner */}
       <CustomTripBanner />
     </>
   );

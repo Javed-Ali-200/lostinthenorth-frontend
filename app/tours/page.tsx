@@ -2,7 +2,10 @@ import prisma from '@/lib/prisma';
 import ServiceCard from '@/components/shared/ServiceCard';
 import type { Tour } from '@/types';
 
-export const metadata = { title: 'Tours – The Lost in the North' };
+export const metadata = {
+    title: 'Tours – The Lost in the North',
+    description: 'Discover handcrafted adventures through the most stunning landscapes of Northern Pakistan.',
+};
 
 async function getTours() {
     try {
@@ -16,11 +19,14 @@ export default async function ToursPage() {
     const tours = await getTours();
 
     return (
-        <div className="pt-20">
+        <div>
             {/* Page header */}
-            <div className="bg-dark text-white section-padding">
+            <div className="page-header section-padding">
                 <div className="container-max">
-                    <span className="text-gold text-sm uppercase tracking-widest">Explore</span>
+                    <span className="section-tag">
+                        <span className="section-tag-line" />
+                        Explore
+                    </span>
                     <h1 className="font-display text-4xl md:text-5xl font-bold mt-2 mb-4">
                         Our Tours
                     </h1>
@@ -31,12 +37,24 @@ export default async function ToursPage() {
             </div>
 
             {/* Tours grid */}
-            <section className="section-padding bg-stone-50">
+            <section className="section-padding bg-[var(--color-surface)]">
                 <div className="container-max">
+                    {/* Results count */}
+                    {tours.length > 0 && (
+                        <div className="flex items-center justify-between mb-8">
+                            <p className="text-sm text-gray-500">
+                                Showing <span className="font-semibold text-[var(--color-dark)]">{tours.length}</span> tours
+                            </p>
+                        </div>
+                    )}
+
                     {tours.length === 0 ? (
-                        <div className="text-center py-20 text-gray-400">
-                            <p className="text-4xl mb-4">🏔️</p>
-                            <p className="text-lg">No tours available right now. Check back soon!</p>
+                        <div className="text-center py-20">
+                            <div className="w-20 h-20 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-4">
+                                <span className="text-3xl">🏔️</span>
+                            </div>
+                            <p className="text-lg font-semibold text-[var(--color-dark)] mb-2">No tours available</p>
+                            <p className="text-gray-400">Check back soon for new adventures!</p>
                         </div>
                     ) : (
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

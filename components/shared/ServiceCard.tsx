@@ -2,7 +2,8 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { Clock, Calendar, MapPin } from 'lucide-react';
+import { Clock, Calendar, MapPin, Heart, Star } from 'lucide-react';
+import { useState } from 'react';
 
 interface ServiceCardProps {
     id: string;
@@ -15,68 +16,104 @@ interface ServiceCardProps {
     price?: number;
     pricePerNight?: number;
     pricePerDay?: number;
+    rating?: number;
 }
 
 export default function ServiceCard({
-    id, type, image, title, location, duration, description
+    id, type, image, title, location, duration, description,
+    price, pricePerNight, pricePerDay, rating,
 }: ServiceCardProps) {
+    const [liked, setLiked] = useState(false);
     const detailHref = `/${type}s/${id}`;
-    const buttonText = type === 'tour' ? 'Tour Details' : type === 'hotel' ? 'Hotel Details' : 'Car Details';
+
+    const displayPrice = price || pricePerNight || pricePerDay || 0;
+    const priceLabel = pricePerNight ? '/night' : pricePerDay ? '/day' : '/person';
+    const buttonText = type === 'tour' ? 'View Tour' : type === 'hotel' ? 'View Hotel' : 'View Car';
 
     return (
-        <div className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 flex flex-col h-full">
+        <div className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 flex flex-col h-full hover:-translate-y-1">
             {/* Image Section */}
-            <div className="relative h-60 overflow-hidden shrink-0">
+            <div className="relative h-56 overflow-hidden shrink-0">
                 <Image
                     src={image || '/placeholder-travel.jpg'}
                     alt={title}
                     fill
-                    className="object-cover transition-transform duration-1000 group-hover:scale-110 group-hover:translate-y-4"
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
                     unoptimized={image?.startsWith('http')}
                 />
-                
-                {/* Floating Info Bar */}
-                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-[90%] bg-white rounded-md shadow-md py-2.5 px-4 flex items-center justify-between z-10 border border-gray-50">
-                    <div className="flex items-center gap-2">
-                        <Clock size={16} className="text-[#D4A853]" />
-                        <span className="text-[11px] font-medium text-gray-500 uppercase tracking-wider">
-                            {duration || 'Varies'} {typeof duration === 'number' ? 'Days' : ''}
-                        </span>
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+
+                {/* Wishlist button */}
+                <button
+                    onClick={(e) => { e.preventDefault(); setLiked(!liked); }}
+                    className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-md hover:bg-white transition-all z-10"
+                    aria-label="Add to wishlist"
+                >
+                    <Heart
+                        size={15}
+                        className={`transition-colors ${liked ? 'text-red-500 fill-red-500' : 'text-gray-500'}`}
+                    />
+                </button>
+
+                {/* Rating badge */}
+                {rating && rating > 0 && (
+                    <div className="absolute top-3 left-3 flex items-center gap-1 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full shadow-sm">
+                        <Star size={12} className="text-[var(--color-accent)] fill-[var(--color-accent)]" />
+                        <span className="text-xs font-bold text-gray-800">{rating.toFixed(1)}</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                        <Calendar size={16} className="text-[#D4A853]" />
-                        <span className="text-[11px] font-medium text-gray-500 uppercase tracking-wider">
-                            Whole Year
+                )}
+
+                {/* Bottom info bar */}
+                <div className="absolute bottom-3 left-3 right-3 flex items-center gap-2 z-10">
+                    {duration && (
+                        <span className="flex items-center gap-1.5 bg-white/90 backdrop-blur-sm px-2.5 py-1 rounded-full shadow-sm">
+                            <Clock size={12} className="text-[var(--color-accent)]" />
+                            <span className="text-[10px] font-semibold text-gray-700 uppercase tracking-wider">
+                                {duration} {typeof duration === 'number' ? 'Days' : ''}
+                            </span>
                         </span>
-                    </div>
+                    )}
+                    <span className="flex items-center gap-1.5 bg-white/90 backdrop-blur-sm px-2.5 py-1 rounded-full shadow-sm">
+                        <Calendar size={12} className="text-[var(--color-accent)]" />
+                        <span className="text-[10px] font-semibold text-gray-700 uppercase tracking-wider">All Year</span>
+                    </span>
                 </div>
             </div>
 
             {/* Content Section */}
-            <div className="p-6 pt-8 flex flex-col flex-grow">
-                <div className="mb-4">
-                    <h3 className="font-display font-bold text-xl text-dark mb-2 hover:text-[#0096C7] transition-colors cursor-pointer leading-tight">
+            <div className="p-5 flex flex-col flex-grow">
+                {/* Title & Location */}
+                <div className="mb-3">
+                    <h3 className="font-display font-bold text-lg text-[var(--color-dark)] mb-1.5 leading-tight line-clamp-2 group-hover:text-[var(--color-primary)] transition-colors">
                         {title}
                     </h3>
-                    <div className="flex items-start gap-1.5 text-gray-400">
-                        <MapPin size={14} className="text-[#D4A853] mt-0.5 shrink-0" />
+                    <div className="flex items-center gap-1.5 text-gray-400">
+                        <MapPin size={13} className="text-[var(--color-accent)] shrink-0" />
                         <span className="text-xs font-medium tracking-wide">{location || 'Northern Pakistan'}</span>
                     </div>
                 </div>
-                
-                <div className="h-px w-full bg-gray-100 mb-5" />
 
-                <p className="text-gray-500 text-[13px] leading-relaxed line-clamp-3 mb-6 flex-grow">
+                <p className="text-gray-500 text-[13px] leading-relaxed line-clamp-2 mb-4 flex-grow">
                     {description}
                 </p>
 
-                <div className="h-px w-full bg-gray-100 mb-6" />
+                {/* Price + CTA */}
+                <div className="border-t border-gray-100 pt-4 flex items-center justify-between">
+                    {displayPrice > 0 ? (
+                        <div>
+                            <span className="font-display text-xl font-bold text-[var(--color-primary)]">
+                                PKR {displayPrice.toLocaleString()}
+                            </span>
+                            <span className="text-xs text-gray-400 ml-1">{priceLabel}</span>
+                        </div>
+                    ) : (
+                        <span className="text-sm text-gray-400">Contact for price</span>
+                    )}
 
-                {/* Single Primary Button */}
-                <div className="mt-auto">
                     <Link
                         href={detailHref}
-                        className="inline-block py-2.5 px-6 bg-[#0096C7] text-white text-[12px] font-bold rounded-md hover:bg-[#0077b6] transition-all shadow-sm hover:shadow-md"
+                        className="btn btn-sm bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-light)] transition-all text-[11px]"
                     >
                         {buttonText}
                     </Link>

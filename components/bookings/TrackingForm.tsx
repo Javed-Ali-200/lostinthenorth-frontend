@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { Search, Loader2 } from 'lucide-react';
 
 interface TrackingFormProps {
     onTrack: (reference: string, email: string) => void;
@@ -17,37 +18,43 @@ export default function TrackingForm({ onTrack, isLoading }: TrackingFormProps) 
     };
 
     return (
-        <div className="w-full max-w-3xl mx-auto bg-white rounded-3xl p-10 shadow-2xl -mt-32 relative z-20">
-            <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-2">
-                    <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-4">Booking Reference</label>
-                    <input 
+        <div className="w-full max-w-2xl mx-auto bg-white rounded-2xl p-8 shadow-xl -mt-20 relative z-20 border border-gray-100">
+            <div className="text-center mb-6">
+                <p className="text-sm text-gray-400">Enter your booking reference and email to track your expedition</p>
+            </div>
+            <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label className="input-label">Booking Reference</label>
+                    <input
                         type="text"
-                        placeholder="e.g. ARCT-99234"
+                        placeholder="e.g. LN-99234"
                         value={reference}
                         onChange={(e) => setReference(e.target.value)}
-                        className="w-full bg-[#f1f3f5] border-none rounded-xl px-6 py-4 text-sm font-medium focus:ring-2 focus:ring-[#00748c] transition-all"
+                        className="input"
                         required
                     />
                 </div>
-                <div className="space-y-2">
-                    <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-4">Email Address</label>
-                    <input 
+                <div>
+                    <label className="input-label">Email Address</label>
+                    <input
                         type="email"
-                        placeholder="explorer@north.com"
+                        placeholder="you@example.com"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full bg-[#f1f3f5] border-none rounded-xl px-6 py-4 text-sm font-medium focus:ring-2 focus:ring-[#00748c] transition-all"
+                        className="input"
                         required
                     />
                 </div>
-                <div className="md:col-span-2 flex justify-center mt-4">
-                    <button 
+                <div className="md:col-span-2">
+                    <button
                         type="submit"
                         disabled={isLoading}
-                        className="bg-[#00748c] text-white px-12 py-4 rounded-xl font-bold text-sm tracking-wider hover:bg-[#005f73] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="btn btn-full bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-light)] disabled:opacity-50 gap-2"
                     >
-                        {isLoading ? 'Searching...' : 'Find Expedition'}
+                        {isLoading
+                            ? <><Loader2 size={16} className="animate-spin" /> Searching…</>
+                            : <><Search size={16} /> Track My Booking</>
+                        }
                     </button>
                 </div>
             </form>

@@ -2,7 +2,10 @@ import prisma from '@/lib/prisma';
 import ServiceCard from '@/components/shared/ServiceCard';
 import type { Hotel } from '@/types';
 
-export const metadata = { title: 'Hotels – The Lost in the North' };
+export const metadata = {
+    title: 'Hotels – The Lost in the North',
+    description: 'Carefully selected hotels and guesthouses in the most beautiful locations of Northern Pakistan.',
+};
 
 async function getHotels() {
     try {
@@ -16,10 +19,13 @@ export default async function HotelsPage() {
     const hotels = await getHotels();
 
     return (
-        <div className="pt-20">
-            <div className="bg-dark text-white section-padding">
+        <div>
+            <div className="page-header section-padding">
                 <div className="container-max">
-                    <span className="text-gold text-sm uppercase tracking-widest">Accommodation</span>
+                    <span className="section-tag">
+                        <span className="section-tag-line" />
+                        Accommodation
+                    </span>
                     <h1 className="font-display text-4xl md:text-5xl font-bold mt-2 mb-4">
                         Our Hotels
                     </h1>
@@ -29,12 +35,23 @@ export default async function HotelsPage() {
                 </div>
             </div>
 
-            <section className="section-padding bg-stone-50">
+            <section className="section-padding bg-[var(--color-surface)]">
                 <div className="container-max">
+                    {hotels.length > 0 && (
+                        <div className="flex items-center justify-between mb-8">
+                            <p className="text-sm text-gray-500">
+                                Showing <span className="font-semibold text-[var(--color-dark)]">{hotels.length}</span> hotels
+                            </p>
+                        </div>
+                    )}
+
                     {hotels.length === 0 ? (
-                        <div className="text-center py-20 text-gray-400">
-                            <p className="text-4xl mb-4">🏨</p>
-                            <p className="text-lg">No hotels listed yet. Check back soon!</p>
+                        <div className="text-center py-20">
+                            <div className="w-20 h-20 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-4">
+                                <span className="text-3xl">🏨</span>
+                            </div>
+                            <p className="text-lg font-semibold text-[var(--color-dark)] mb-2">No hotels listed yet</p>
+                            <p className="text-gray-400">Check back soon for amazing stays!</p>
                         </div>
                     ) : (
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -48,6 +65,7 @@ export default async function HotelsPage() {
                                     location={hotel.location}
                                     pricePerNight={hotel.pricePerNight}
                                     description={hotel.description}
+                                    rating={hotel.rating}
                                 />
                             ))}
                         </div>
