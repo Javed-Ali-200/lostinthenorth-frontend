@@ -20,16 +20,19 @@ export default async function CarsPage() {
 
     return (
         <div>
-            <div className="page-header section-padding">
-                <div className="container-max">
-                    <span className="section-tag">
-                        <span className="section-tag-line" />
+            <div 
+                className="page-header section-padding"
+                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1533240332313-0db49b439ad3?q=80&w=2070&auto=format&fit=crop')" }}
+            >
+                <div className="container-max px-4">
+                    <span className="section-tag text-white">
+                        <span className="section-tag-line bg-white" style={{ backgroundColor: '#ffffff' }} />
                         Transportation
                     </span>
-                    <h1 className="font-display text-4xl md:text-5xl font-bold mt-2 mb-4">
+                    <h1 className="font-display text-4xl md:text-5xl font-bold mt-2 mb-4 text-white text-shadow-md">
                         Car Rentals
                     </h1>
-                    <p className="text-gray-400 max-w-lg">
+                    <p className="text-gray-200 max-w-lg text-shadow-sm font-medium">
                         Reliable vehicles for mountain terrain — from 4x4 SUVs to comfortable sedans.
                     </p>
                 </div>

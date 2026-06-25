@@ -49,57 +49,34 @@ export default async function TrekkingPage() {
 
     return (
         <div className="bg-white">
-            {/* Hero Section */}
-            <section className="relative h-[80vh] min-h-[600px] flex items-center justify-center overflow-hidden">
-                <Image
-                    src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop"
-                    alt="Trekking in Pakistan"
-                    fill
-                    className="object-cover brightness-[0.7]"
-                    priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-dark/40" />
-                
-                <div className="container-max relative z-10 text-center text-white px-4">
-                    <div className="bg-white/10 backdrop-blur-md border border-white/20 inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
-                        <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                        <span className="text-[10px] uppercase font-bold tracking-widest">Active Expeditions 2024</span>
-                    </div>
-
-                    <h1 className="font-display text-5xl md:text-7xl font-bold mb-6 animate-in fade-in slide-in-from-bottom-6 duration-1000">
-                        Trekking Expeditions <br />
-                        <span className="text-[var(--color-accent)]">in Pakistan</span>
+            {/* Page Header */}
+            <div 
+                className="page-header section-padding"
+                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop')" }}
+            >
+                <div className="container-max px-4">
+                    <span className="section-tag text-white">
+                        <span className="section-tag-line bg-white" style={{ backgroundColor: '#ffffff' }} />
+                        Active Expeditions 2024
+                    </span>
+                    <h1 className="font-display text-4xl md:text-5xl font-bold mt-2 mb-4 text-white text-shadow-md">
+                        Trekking Expeditions <span className="text-[var(--color-accent)]">in Pakistan</span>
                     </h1>
-                    
-                    <p className="max-w-2xl mx-auto text-lg text-gray-200 mb-10 leading-relaxed font-light animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
-                        Embark on an epic adventure through Pakistan's legendary mountain ranges: the Karakoram, Himalayas, and Hindukush. 
-                        Our trekking expeditions offer unparalleled access to pristine alpine meadows and remote valleys.
+                    <p className="text-gray-200 max-w-lg leading-relaxed text-shadow-sm font-medium mb-6">
+                        Embark on an epic adventure through Pakistan's legendary mountain ranges: the Karakoram, Himalayas, and Hindukush. Our trekking expeditions offer unparalleled access to pristine alpine meadows and remote valleys.
                     </p>
-
-                    <div className="flex flex-wrap justify-center gap-3 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-500">
+                    <div className="flex flex-wrap gap-2.5">
                         {LOCATION_TAGS.map((tag) => (
-                            <button key={tag} className="bg-[var(--color-primary)] hover:bg-[var(--color-primary-light)] text-white px-5 py-2 rounded-full text-xs font-bold transition-all hover:scale-105 flex items-center gap-2 shadow-lg">
-                                <MapPin size={12} /> {tag}
+                            <button key={tag} className="bg-[var(--color-primary)] hover:bg-[var(--color-primary-light)] text-white px-4 py-1.5 rounded-full text-xs font-bold transition-all hover:scale-105 flex items-center gap-1.5 shadow-md">
+                                <MapPin size={12} className="shrink-0" /> {tag}
                             </button>
                         ))}
                     </div>
                 </div>
-
-                <div className="absolute top-10 right-10 text-white/80 hidden md:block">
-                    <div className="flex items-center gap-2">
-                        <Star className="text-yellow-400 fill-yellow-400" size={18} />
-                        <span className="text-xl font-bold">4.9/5</span>
-                        <span className="text-sm border-l border-white/20 pl-2 opacity-70">(127 reviews)</span>
-                    </div>
-                </div>
-                
-                <div className="absolute top-10 left-10 text-white/80 hidden md:block">
-                    <span className="px-3 py-1 bg-white/10 backdrop-blur-md rounded-md text-xs font-bold border border-white/20">8-28 Days</span>
-                </div>
-            </section>
+            </div>
 
             {/* Search Bar Floating */}
-            <div className="container-max relative z-20 -mt-16 px-4">
+            <div className="container-max relative z-20 -mt-10 px-4">
                 <div className="bg-dark/80 backdrop-blur-xl border border-white/10 p-4 rounded-3xl shadow-2xl flex flex-col md:flex-row gap-4">
                     <div className="flex-1 relative">
                         <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
