@@ -93,7 +93,7 @@ export default async function TrekkingPage() {
                             <option value="himalayas">Himalayas</option>
                         </select>
                     </div>
-                    <button className="btn bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] text-white px-8 py-3.5 rounded-2xl font-bold flex items-center justify-center gap-2 transition-all hover:scale-[1.02] active:scale-95 shadow-lg">
+                    <button className="btn bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-white px-8 py-3.5 rounded-2xl font-bold flex items-center justify-center gap-2 transition-all hover:scale-[1.02] active:scale-95 shadow-lg">
                         <Search size={20} /> Search
                     </button>
                 </div>
@@ -105,8 +105,8 @@ export default async function TrekkingPage() {
                     <div className="flex flex-col lg:flex-row gap-12">
                         {/* Listings Grid */}
                         <div className="lg:w-2/3">
-                            <h2 className="font-display text-3xl font-bold text-dark mb-10 flex items-center gap-4">
-                                Available Trekkings <span className="text-[var(--color-primary)]">- all</span>
+                            <h2 className="font-display text-3xl font-bold text-[var(--color-text-heading)] mb-10 flex items-center gap-4">
+                                Available Trekkings <span className="text-[var(--color-accent)]">- all</span>
                             </h2>
 
                             {trekkings.length === 0 ? (
@@ -126,8 +126,8 @@ export default async function TrekkingPage() {
                         {/* Sidebars */}
                         <div className="lg:w-1/3 space-y-8">
                             {/* Treks Highlights */}
-                            <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
-                                <h3 className="font-display text-xl font-bold text-dark mb-6 flex items-center gap-3">
+                            <div className="bg-white p-8 rounded-3xl border border-[var(--color-border)] shadow-sm">
+                                <h3 className="font-display text-xl font-bold text-[var(--color-text-heading)] mb-6 flex items-center gap-3">
                                     <Award className="text-[var(--color-primary)]" /> Treks Highlights
                                 </h3>
                                 <ul className="space-y-6">
@@ -135,8 +135,8 @@ export default async function TrekkingPage() {
                                         <li key={i} className="flex gap-4">
                                             <span className="w-2 h-2 rounded-full bg-[var(--color-primary)] mt-1.5 shrink-0" />
                                             <div>
-                                                <h4 className="font-bold text-sm text-dark mb-1">{h.title}:</h4>
-                                                <p className="text-xs text-gray-500 leading-relaxed font-light">{h.desc}</p>
+                                                <h4 className="font-bold text-sm text-[var(--color-text-heading)] mb-1">{h.title}:</h4>
+                                                <p className="text-xs text-[var(--color-text-body)] leading-relaxed font-light">{h.desc}</p>
                                             </div>
                                         </li>
                                     ))}
@@ -144,13 +144,13 @@ export default async function TrekkingPage() {
                             </div>
 
                             {/* Inclusions */}
-                            <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
-                                <h3 className="font-display text-xl font-bold text-dark mb-6 flex items-center gap-3">
+                            <div className="bg-white p-8 rounded-3xl border border-[var(--color-border)] shadow-sm">
+                                <h3 className="font-display text-xl font-bold text-[var(--color-text-heading)] mb-6 flex items-center gap-3">
                                     <Check className="text-[var(--color-primary)]" /> Inclusions
                                 </h3>
                                 <ul className="space-y-3">
                                     {INCLUSIONS.map((inc, i) => (
-                                        <li key={i} className="flex gap-3 text-xs text-gray-600 leading-relaxed">
+                                        <li key={i} className="flex gap-3 text-xs text-[var(--color-text-body)] leading-relaxed">
                                             <Check className="text-[var(--color-primary)] shrink-0 mt-0.5" size={14} />
                                             <span>{inc}</span>
                                         </li>

@@ -17,7 +17,7 @@ export default function TrekkingCard({ trek }: TrekkingCardProps) {
     const isEarlyBird = trek.featured;
 
     return (
-        <div className="group bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+        <div className="group bg-white rounded-2xl border border-[var(--color-border)] shadow-sm overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
             {/* Image Section */}
             <div className="relative h-64 overflow-hidden">
                 <Image
@@ -47,17 +47,17 @@ export default function TrekkingCard({ trek }: TrekkingCardProps) {
 
             {/* Content Section */}
             <div className="p-6">
-                <h3 className="font-display text-xl font-bold text-[var(--color-dark)] mb-4 line-clamp-2 min-h-[3.5rem] group-hover:text-[var(--color-primary)] transition-colors">
+                <h3 className="font-display text-xl font-bold text-[var(--color-dark)] mb-4 line-clamp-2 min-h-[3.5rem] group-hover:text-[var(--color-accent)] transition-colors">
                     {trek.title}
                 </h3>
 
                 <div className="grid grid-cols-2 gap-4 mb-6">
                     <div className="flex items-center gap-2 text-gray-500 text-xs">
-                        <Calendar size={14} className="text-[var(--color-primary)]" />
+                        <Calendar size={14} className="text-[var(--color-accent)]" />
                         <span>{trek.duration} Days</span>
                     </div>
                     <div className="flex items-center gap-2 text-gray-500 text-xs">
-                        <Users size={14} className="text-[var(--color-primary)]" />
+                        <Users size={14} className="text-[var(--color-accent)]" />
                         <span>{trek.maxGroupSize - 4}-{trek.maxGroupSize} people</span>
                     </div>
                     <div className="flex items-center gap-2 text-gray-500 text-xs text-capitalize">
@@ -71,14 +71,14 @@ export default function TrekkingCard({ trek }: TrekkingCardProps) {
                     </div>
                 </div>
 
-                <div className="flex flex-col gap-2 pt-2 border-t border-gray-50">
+                <div className="flex flex-col gap-2 pt-2 border-t border-[var(--color-border)]">
                     <Link
                         href={`/trekking/${trek.id}`}
-                        className="w-full flex items-center justify-center gap-2 py-3 bg-[var(--color-primary)] text-white rounded-xl font-bold text-sm hover:bg-[var(--color-primary-light)] transition-colors shadow-sm"
+                        className="w-full flex items-center justify-center gap-2 py-3 bg-[var(--color-accent)] text-white rounded-xl font-bold text-sm hover:bg-[var(--color-accent-hover)] transition-colors shadow-sm"
                     >
                         View Details <ArrowRight size={14} />
                     </Link>
-                    <button className="w-full py-3 bg-white text-[var(--color-primary)] border border-[var(--color-primary)]/20 rounded-xl font-bold text-sm hover:bg-[var(--color-primary)]/5 transition-colors">
+                    <button className="w-full py-3 bg-white text-[var(--color-primary)] border border-[var(--color-border)] rounded-xl font-bold text-sm hover:bg-[var(--color-primary)]/5 transition-colors">
                         Quick Book
                     </button>
                 </div>

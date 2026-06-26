@@ -53,7 +53,7 @@ export default function ExpeditionJournals() {
                     {JOURNALS.map((j, i) => (
                         <div
                             key={i}
-                            className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 overflow-hidden flex flex-col"
+                            className="group bg-white rounded-2xl border border-[var(--color-border)] shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 overflow-hidden flex flex-col"
                         >
                             {/* Top color band */}
                             <div className="h-1.5 w-full" style={{ background: j.gradient }} />
@@ -72,12 +72,12 @@ export default function ExpeditionJournals() {
                                 </div>
 
                                 {/* Quote */}
-                                <p className="text-gray-600 leading-relaxed text-sm mb-5 flex-grow">
+                                <p className="text-[var(--color-text-body)] leading-relaxed text-sm mb-5 flex-grow">
                                     &ldquo;{j.text}&rdquo;
                                 </p>
 
                                 {/* Author */}
-                                <div className="flex items-center gap-3 pt-4 border-t border-gray-50">
+                                <div className="flex items-center gap-3 pt-4 border-t border-[var(--color-border)]">
                                     <div
                                         className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm shrink-0"
                                         style={{ background: j.gradient }}
@@ -86,7 +86,7 @@ export default function ExpeditionJournals() {
                                     </div>
                                     <div>
                                         <p className="font-semibold text-[var(--color-dark)] text-sm">{j.name}</p>
-                                        <p className="text-xs text-gray-400">{j.location} · {j.date}</p>
+                                        <p className="text-xs text-[var(--color-text-muted)]">{j.location} · {j.date}</p>
                                     </div>
                                 </div>
                             </div>

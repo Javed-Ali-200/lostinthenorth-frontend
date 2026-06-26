@@ -47,7 +47,7 @@ export default function WhyChooseUs() {
                     <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">
                         Your Journey, Our Passion
                     </h2>
-                    <p className="text-gray-400 max-w-xl mx-auto">
+                    <p className="text-gray-300 max-w-xl mx-auto">
                         We&apos;ve been crafting unforgettable experiences in Northern Pakistan for over a
                         decade. Here&apos;s what makes us different.
                     </p>
@@ -67,7 +67,7 @@ export default function WhyChooseUs() {
                                 <Icon size={22} className="text-[var(--color-accent)]" />
                             </div>
                             <h3 className="font-display text-lg font-semibold text-white mb-2">{title}</h3>
-                            <p className="text-gray-400 text-sm leading-relaxed">{description}</p>
+                            <p className="text-gray-300 text-sm leading-relaxed">{description}</p>
                         </div>
                     ))}
                 </div>

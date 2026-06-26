@@ -54,7 +54,7 @@ export default function RoadToNorth() {
                                 <span className="font-display text-xl font-bold text-white">{step.number}</span>
                             </div>
                             <h3 className="font-display text-lg font-bold text-[var(--color-dark)] mb-2">{step.title}</h3>
-                            <p className="text-gray-500 text-sm leading-relaxed max-w-[200px]">{step.desc}</p>
+                            <p className="text-[var(--color-text-body)] text-sm leading-relaxed max-w-[200px]">{step.desc}</p>
                         </div>
                     ))}
                 </div>

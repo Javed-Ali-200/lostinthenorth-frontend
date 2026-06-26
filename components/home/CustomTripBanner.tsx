@@ -24,7 +24,7 @@ export default function CustomTripBanner() {
                     </p>
                     <Link
                         href="/custom-trip"
-                        className="btn bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-dark)] shadow-lg hover:shadow-xl"
+                        className="btn bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-hover)] shadow-lg hover:shadow-xl"
                     >
                         Plan My Custom Trip →
                     </Link>

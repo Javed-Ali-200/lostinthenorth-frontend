@@ -32,9 +32,10 @@ export default function Navbar() {
 
     return (
         <nav
-            className={`sticky top-0 z-50 bg-white/95 backdrop-blur-md transition-all duration-300 ${
-                scrolled ? 'shadow-lg py-2.5' : 'border-b border-gray-100 py-3.5'
+            className={`sticky top-0 z-50 backdrop-blur-md transition-all duration-300 ${
+                scrolled ? 'shadow-lg py-2.5' : 'border-b py-3.5'
             }`}
+            style={{ backgroundColor: 'var(--color-bg-navbar)', borderColor: 'var(--color-border)' }}
         >
             <div className="container-max px-6 flex items-center justify-between">
                 {/* Logo Section */}
@@ -60,8 +61,8 @@ export default function Navbar() {
                                 href={link.href}
                                 className={`hover-underline py-2 text-[11px] font-bold uppercase tracking-wider transition-colors duration-300 ${
                                     isActive
-                                        ? 'text-[var(--color-primary)] active'
-                                        : 'text-gray-500 hover:text-[var(--color-primary)]'
+                                        ? 'text-[var(--color-primary)] active font-semibold'
+                                        : 'text-[var(--color-text-body)] hover:text-[var(--color-accent)]'
                                 }`}
                             >
                                 {link.label}
@@ -74,7 +75,7 @@ export default function Navbar() {
                 <div className="hidden lg:flex items-center gap-3 ml-6">
                     <Link
                         href="/custom-trip"
-                        className="btn btn-sm bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-dark)] shadow-sm hover:shadow-md transition-all"
+                        className="btn btn-sm bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-hover)] shadow-sm hover:shadow-md transition-all rounded-full"
                     >
                         Plan My Trip
                     </Link>
@@ -96,7 +97,7 @@ export default function Navbar() {
                     isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
                 }`}
             >
-                <div className="bg-white border-t border-gray-100 px-6 py-4 space-y-1 shadow-xl">
+                <div className="bg-[var(--color-bg-navbar)] border-t border-[var(--color-border)] px-6 py-4 space-y-1 shadow-xl">
                     {navLinks.map((link) => {
                         const isActive = link.href === '/' ? pathname === '/' : pathname.startsWith(link.href);
                         return (
@@ -105,8 +106,8 @@ export default function Navbar() {
                                 href={link.href}
                                 className={`block px-4 py-3 text-sm font-bold uppercase tracking-widest rounded-xl transition-all ${
                                     isActive
-                                        ? 'bg-[var(--color-primary)] text-white shadow-md'
-                                        : 'text-gray-600 hover:bg-gray-50 hover:text-[var(--color-primary)]'
+                                        ? 'bg-[var(--color-accent)] text-white shadow-md'
+                                        : 'text-[var(--color-text-body)] hover:bg-[var(--color-bg-section-alt)] hover:text-[var(--color-accent)]'
                                 }`}
                             >
                                 {link.label}

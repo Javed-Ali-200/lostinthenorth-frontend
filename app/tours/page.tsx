@@ -45,7 +45,7 @@ export default async function ToursPage() {
                     {/* Results count */}
                     {tours.length > 0 && (
                         <div className="flex items-center justify-between mb-8">
-                            <p className="text-sm text-gray-500">
+                            <p className="text-sm text-[var(--color-text-muted)]">
                                 Showing <span className="font-semibold text-[var(--color-dark)]">{tours.length}</span> tours
                             </p>
                         </div>
@@ -53,11 +53,11 @@ export default async function ToursPage() {
 
                     {tours.length === 0 ? (
                         <div className="text-center py-20">
-                            <div className="w-20 h-20 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-4">
+                            <div className="w-20 h-20 rounded-full bg-[var(--color-surface-alt)] flex items-center justify-center mx-auto mb-4">
                                 <span className="text-3xl">🏔️</span>
                             </div>
                             <p className="text-lg font-semibold text-[var(--color-dark)] mb-2">No tours available</p>
-                            <p className="text-gray-400">Check back soon for new adventures!</p>
+                            <p className="text-[var(--color-text-muted)]">Check back soon for new adventures!</p>
                         </div>
                     ) : (
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

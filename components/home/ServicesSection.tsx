@@ -23,7 +23,7 @@ function SectionHeader({
                 <h2 className="font-display text-3xl md:text-4xl font-bold text-[var(--color-dark)]">
                     {title}
                 </h2>
-                <p className="text-gray-500 mt-2 max-w-lg">{subtitle}</p>
+                <p className="text-[var(--color-text-body)] mt-2 max-w-lg">{subtitle}</p>
             </div>
             {href && cta && (
                 <Link

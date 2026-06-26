@@ -17,15 +17,15 @@ export default function NextSteps() {
     ];
 
     return (
-        <div className="bg-[#1a1a1a] rounded-3xl p-8 shadow-xl mt-6">
-            <h3 className="text-xl font-display font-medium text-white mb-6 underline decoration-[#d4a853] underline-offset-8">
+        <div className="bg-[var(--color-primary)] rounded-3xl p-8 shadow-xl mt-6">
+            <h3 className="text-xl font-display font-medium text-white mb-6 underline decoration-[var(--color-accent)] underline-offset-8">
                 What's Next for You?
             </h3>
             
             <div className="space-y-6">
                 {steps.map((step) => (
                     <div key={step.id} className="flex gap-4 group">
-                        <div className="flex-shrink-0 w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-[#d4a853] text-sm font-bold group-hover:bg-[#d4a853] group-hover:text-black transition-all">
+                        <div className="flex-shrink-0 w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-[var(--color-accent)] text-sm font-bold group-hover:bg-[var(--color-accent)] group-hover:text-[var(--color-text-on-accent)] transition-all">
                             {step.id}
                         </div>
                         <div>

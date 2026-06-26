@@ -55,12 +55,12 @@ export default function AboutSection() {
                         <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--color-dark)] leading-tight mb-5">
                             A Journey Crafted<br />by the Elements
                         </h2>
-                        <p className="text-gray-500 leading-relaxed mb-5">
+                        <p className="text-[var(--color-text-body)] leading-relaxed mb-5">
                             We are a team of passionate mountaineers and travel architects based in Northern Pakistan.
                             Since 2014, we&apos;ve guided thousands of adventurers through the world&apos;s most
                             dramatic landscapes — from K2 base camp to the ancient Silk Road.
                         </p>
-                        <p className="text-gray-500 leading-relaxed mb-7">
+                        <p className="text-[var(--color-text-body)] leading-relaxed mb-7">
                             Every expedition is a story we tell together. Whether you&apos;re chasing aurora borealis,
                             trekking glaciers, or relaxing in a riverside lodge, we make sure every moment is
                             extraordinary.
@@ -69,8 +69,8 @@ export default function AboutSection() {
                         {/* Bullet points */}
                         <div className="space-y-3 mb-8">
                             {POINTS.map((pt) => (
-                                <div key={pt} className="flex items-start gap-3 text-sm text-gray-700">
-                                    <CheckCircle size={17} className="shrink-0 mt-0.5 text-[var(--color-primary)]" />
+                                <div key={pt} className="flex items-start gap-3 text-sm text-[var(--color-text-body)]">
+                                    <CheckCircle size={17} className="shrink-0 mt-0.5 text-[var(--color-accent)]" />
                                     {pt}
                                 </div>
                             ))}
@@ -78,7 +78,7 @@ export default function AboutSection() {
 
                         <Link
                             href="/tours"
-                            className="btn bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-light)] shadow-md hover:shadow-lg"
+                            className="btn bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-hover)] shadow-md hover:shadow-lg"
                         >
                             Explore Our Tours
                         </Link>

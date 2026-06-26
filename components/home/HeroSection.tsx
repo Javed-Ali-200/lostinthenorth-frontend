@@ -88,17 +88,17 @@ export default function HeroSection() {
             <div className="w-full max-w-4xl mx-auto z-30">
                 <form
                     onSubmit={handleSearch}
-                    className="relative bg-white rounded-full shadow-[0_10px_35px_rgba(0,0,0,0.08)] border border-gray-100 p-2 flex flex-col md:flex-row items-center justify-between gap-3 md:gap-0"
+                    className="relative bg-white rounded-full shadow-[0_10px_35px_rgba(0,0,0,0.08)] border border-[var(--color-border)] p-2 flex flex-col md:flex-row items-center justify-between gap-3 md:gap-0"
                 >
                     {/* Destination Input */}
                     <div className="flex-1 w-full flex items-center gap-3 px-4 py-2">
-                        <MapPin className="text-gray-800 shrink-0" size={20} />
+                        <MapPin className="text-[var(--color-text-heading)] shrink-0" size={20} />
                         <input
                             type="text"
                             placeholder="Search Pakistan"
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="w-full bg-transparent text-sm font-medium text-gray-800 placeholder-gray-400 outline-none"
+                            className="w-full bg-transparent text-sm font-medium text-[var(--color-text-heading)] placeholder-[var(--color-text-muted)] outline-none"
                         />
                     </div>
 
@@ -111,18 +111,18 @@ export default function HeroSection() {
                         className="relative flex-1 w-full flex items-center gap-3 px-4 py-2 cursor-pointer"
                         onClick={() => setShowDatePicker(!showDatePicker)}
                     >
-                        <Calendar className="text-gray-800 shrink-0" size={20} />
-                        <span className="block text-sm font-medium text-gray-800 truncate">
+                        <Calendar className="text-[var(--color-text-heading)] shrink-0" size={20} />
+                        <span className="block text-sm font-medium text-[var(--color-text-heading)] truncate">
                             {formatDateDisplay()}
                         </span>
 
                         {/* Date Picker Popover */}
                         {showDatePicker && (
                             <div
-                                className="absolute top-full left-0 right-0 md:left-auto md:right-0 mt-4 bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] p-5 z-40 border border-gray-100 flex flex-col gap-4 min-w-[320px] animate-scale-in"
+                                className="absolute top-full left-0 right-0 md:left-auto md:right-0 mt-4 bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] p-5 z-40 border border-[var(--color-border)] flex flex-col gap-4 min-w-[320px] animate-scale-in"
                                 onClick={(e) => e.stopPropagation()}
                             >
-                                <div className="flex items-center justify-between border-b border-gray-100 pb-2.5">
+                                <div className="flex items-center justify-between border-b border-[var(--color-border)] pb-2.5">
                                     <span className="text-xs font-bold uppercase tracking-wider text-gray-500">Travel Dates</span>
                                     <button
                                         type="button"
@@ -139,7 +139,7 @@ export default function HeroSection() {
                                             type="date"
                                             value={startDate}
                                             onChange={(e) => setStartDate(e.target.value)}
-                                            className="w-full px-3 py-2 text-xs font-semibold text-gray-700 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-red-500 focus:bg-white transition-colors"
+                                            className="w-full px-3 py-2 text-xs font-semibold text-[var(--color-text-body)] bg-[var(--color-bg-section-alt)] border border-[var(--color-border)] rounded-xl outline-none focus:border-[var(--color-accent)] focus:bg-white transition-colors"
                                         />
                                     </div>
                                     <div className="flex flex-col gap-1">
@@ -148,25 +148,25 @@ export default function HeroSection() {
                                             type="date"
                                             value={endDate}
                                             onChange={(e) => setEndDate(e.target.value)}
-                                            className="w-full px-3 py-2 text-xs font-semibold text-gray-700 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-red-500 focus:bg-white transition-colors"
+                                            className="w-full px-3 py-2 text-xs font-semibold text-[var(--color-text-body)] bg-[var(--color-bg-section-alt)] border border-[var(--color-border)] rounded-xl outline-none focus:border-[var(--color-accent)] focus:bg-white transition-colors"
                                         />
                                     </div>
                                 </div>
-                                <div className="flex justify-between items-center mt-2 pt-3 border-t border-gray-100">
+                                <div className="flex justify-between items-center mt-2 pt-3 border-t border-[var(--color-border)]">
                                     <button
                                         type="button"
                                         onClick={() => {
                                             setStartDate('');
                                             setEndDate('');
                                         }}
-                                        className="text-xs font-bold text-gray-400 hover:text-[#E51B24] transition-colors"
+                                        className="text-xs font-bold text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
                                     >
                                         Clear Dates
                                     </button>
                                     <button
                                         type="button"
                                         onClick={() => setShowDatePicker(false)}
-                                        className="px-4 py-2 bg-[#E51B24] hover:bg-red-700 text-white text-xs font-bold rounded-xl transition-colors shadow-sm"
+                                        className="px-4 py-2 bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-white text-xs font-bold rounded-xl transition-colors shadow-sm"
                                     >
                                         Apply
                                     </button>
@@ -178,7 +178,7 @@ export default function HeroSection() {
                     {/* Search Button */}
                     <button
                         type="submit"
-                        className="w-full md:w-auto bg-[#E51B24] hover:bg-red-700 text-white font-bold px-8 py-3 rounded-full text-sm flex items-center justify-center gap-2 transition-all duration-200 shadow-md hover:shadow-lg active:scale-95 shrink-0 md:mr-1"
+                        className="w-full md:w-auto bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-white font-bold px-8 py-3 rounded-full text-sm flex items-center justify-center gap-2 transition-all duration-200 shadow-md hover:shadow-lg active:scale-95 shrink-0 md:mr-1"
                     >
                         <span>Search</span>
                         <Search size={16} />
@@ -225,7 +225,7 @@ export default function HeroSection() {
                             >
                                 <Link
                                     href={CAROUSEL_SLIDES[currentSlide].link}
-                                    className="inline-flex bg-[#E51B24] hover:bg-red-700 text-white font-semibold px-6 py-2.5 sm:px-8 sm:py-3 rounded-full text-xs sm:text-sm transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95"
+                                    className="inline-flex bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-white font-semibold px-6 py-2.5 sm:px-8 sm:py-3 rounded-full text-xs sm:text-sm transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95"
                                 >
                                     {CAROUSEL_SLIDES[currentSlide].buttonText}
                                 </Link>

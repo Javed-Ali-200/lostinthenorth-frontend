@@ -123,10 +123,10 @@ export default function BookingModal({
             <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto animate-scale-in">
 
                 {/* Header */}
-                <div className="sticky top-0 bg-white border-b border-gray-100 px-6 py-4 flex items-center justify-between rounded-t-2xl z-10">
+                <div className="sticky top-0 bg-white border-b border-[var(--color-border)] px-6 py-4 flex items-center justify-between rounded-t-2xl z-10">
                     <div>
                         <h2 className="font-display text-xl font-bold text-[var(--color-dark)]">Book Now</h2>
-                        <p className="text-gray-400 text-xs line-clamp-1 mt-0.5">{serviceTitle}</p>
+                        <p className="text-[var(--color-text-muted)] text-xs line-clamp-1 mt-0.5">{serviceTitle}</p>
                     </div>
                     <button onClick={handleClose} className="p-2 hover:bg-gray-100 rounded-full transition">
                         <X size={20} />
@@ -141,16 +141,16 @@ export default function BookingModal({
                                 <CheckCircle size={40} className="text-green-500" />
                             </div>
                             <h3 className="font-display text-2xl font-bold text-[var(--color-dark)] mb-2">Booking Confirmed!</h3>
-                            <p className="text-gray-500 mb-2">Your booking reference:</p>
+                            <p className="text-[var(--color-text-body)] mb-2">Your booking reference:</p>
                             <span className="inline-block bg-[var(--color-primary-10)] text-[var(--color-primary)] font-bold text-lg px-5 py-2.5 rounded-xl mb-4 tracking-wider">
                                 {bookingNumber}
                             </span>
-                            <p className="text-gray-400 text-sm mb-6 max-w-xs mx-auto">
+                            <p className="text-[var(--color-text-muted)] text-sm mb-6 max-w-xs mx-auto">
                                 A confirmation email has been sent. Our team will contact you within 24 hours.
                             </p>
                             <button
                                 onClick={handleClose}
-                                className="btn bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-light)]"
+                                className="btn bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-hover)]"
                             >
                                 Done
                             </button>
@@ -190,7 +190,7 @@ export default function BookingModal({
                                 {/* Step 1: Personal Details */}
                                 {formStep === 1 && (
                                     <div className="space-y-4 animate-slide-up">
-                                        <p className="text-xs font-bold uppercase tracking-widest text-gray-400">Personal Information</p>
+                                        <p className="text-xs font-bold uppercase tracking-widest text-[var(--color-text-muted)]">Personal Information</p>
                                         <div>
                                             <label className="input-label">Full Name *</label>
                                             <input
@@ -225,7 +225,7 @@ export default function BookingModal({
                                 {/* Step 2: Dates & People */}
                                 {formStep === 2 && (
                                     <div className="space-y-4 animate-slide-up">
-                                        <p className="text-xs font-bold uppercase tracking-widest text-gray-400">Travel Dates</p>
+                                        <p className="text-xs font-bold uppercase tracking-widest text-[var(--color-text-muted)]">Travel Dates</p>
                                         <div className="grid grid-cols-2 gap-4">
                                             <div>
                                                 <label className="input-label">Start Date *</label>
@@ -273,36 +273,36 @@ export default function BookingModal({
                                 {/* Step 3: Confirm */}
                                 {formStep === 3 && (
                                     <div className="space-y-4 animate-slide-up">
-                                        <p className="text-xs font-bold uppercase tracking-widest text-gray-400">Booking Summary</p>
-                                        <div className="bg-[var(--color-surface)] rounded-xl p-4 space-y-3 text-sm">
+                                        <p className="text-xs font-bold uppercase tracking-widest text-[var(--color-text-muted)]">Booking Summary</p>
+                                        <div className="bg-[var(--color-surface-alt)] rounded-xl p-4 space-y-3 text-sm">
                                             <div className="flex justify-between">
-                                                <span className="text-gray-500">Service</span>
+                                                <span className="text-[var(--color-text-body)]">Service</span>
                                                 <span className="font-medium text-right max-w-[60%] line-clamp-1">{serviceTitle}</span>
                                             </div>
                                             <div className="flex justify-between">
-                                                <span className="text-gray-500">Type</span>
+                                                <span className="text-[var(--color-text-body)]">Type</span>
                                                 <span className="font-medium">{serviceType}</span>
                                             </div>
                                             {startDate && endDate && (
                                                 <div className="flex justify-between">
-                                                    <span className="text-gray-500">Dates</span>
+                                                    <span className="text-[var(--color-text-body)]">Dates</span>
                                                     <span className="font-medium">{startDate} → {endDate}</span>
                                                 </div>
                                             )}
                                             <div className="flex justify-between">
-                                                <span className="text-gray-500">People</span>
+                                                <span className="text-[var(--color-text-body)]">People</span>
                                                 <span className="font-medium">{people}</span>
                                             </div>
                                             {startDate && endDate && (
-                                                <div className="flex justify-between border-t border-gray-200 pt-3 mt-1">
+                                                <div className="flex justify-between border-t border-[var(--color-border)] pt-3 mt-1">
                                                     <span className="font-bold text-[var(--color-dark)]">Estimated Total</span>
-                                                    <span className="font-bold text-[var(--color-primary)] text-base">
+                                                    <span className="font-bold text-[var(--color-accent)] text-base">
                                                         PKR {calculateTotal().toLocaleString()}
                                                     </span>
                                                 </div>
                                             )}
                                         </div>
-                                        <p className="text-xs text-gray-400">
+                                        <p className="text-xs text-[var(--color-text-muted)]">
                                             By confirming, you agree to our cancellation policy. A team member will contact you to finalise details.
                                         </p>
                                     </div>
@@ -323,7 +323,7 @@ export default function BookingModal({
                                         <button
                                             type="button"
                                             onClick={handleNext}
-                                            className="btn bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-light)] flex-1"
+                                            className="btn bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-hover)] flex-1"
                                         >
                                             Continue →
                                         </button>
@@ -331,7 +331,7 @@ export default function BookingModal({
                                         <button
                                             type="submit"
                                             disabled={isSubmitting}
-                                            className="btn bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-dark)] flex-1 disabled:opacity-60"
+                                            className="btn bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-hover)] flex-1 disabled:opacity-60"
                                         >
                                             {isSubmitting ? (
                                                 <><Loader2 size={18} className="animate-spin" /> Processing...</>

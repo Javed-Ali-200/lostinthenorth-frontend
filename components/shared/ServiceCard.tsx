@@ -31,7 +31,7 @@ export default function ServiceCard({
     const buttonText = type === 'tour' ? 'View Tour' : type === 'hotel' ? 'View Hotel' : 'View Car';
 
     return (
-        <div className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 flex flex-col h-full hover:-translate-y-1">
+        <div className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-[var(--color-border)] flex flex-col h-full hover:-translate-y-1">
             {/* Image Section */}
             <div className="relative h-56 overflow-hidden shrink-0">
                 <Image
@@ -85,35 +85,35 @@ export default function ServiceCard({
             <div className="p-5 flex flex-col flex-grow">
                 {/* Title & Location */}
                 <div className="mb-3">
-                    <h3 className="font-display font-bold text-lg text-[var(--color-dark)] mb-1.5 leading-tight line-clamp-2 group-hover:text-[var(--color-primary)] transition-colors">
+                    <h3 className="font-display font-bold text-lg text-[var(--color-dark)] mb-1.5 leading-tight line-clamp-2 group-hover:text-[var(--color-accent)] transition-colors">
                         {title}
                     </h3>
-                    <div className="flex items-center gap-1.5 text-gray-400">
+                    <div className="flex items-center gap-1.5 text-[var(--color-text-muted)]">
                         <MapPin size={13} className="text-[var(--color-accent)] shrink-0" />
                         <span className="text-xs font-medium tracking-wide">{location || 'Northern Pakistan'}</span>
                     </div>
                 </div>
 
-                <p className="text-gray-500 text-[13px] leading-relaxed line-clamp-2 mb-4 flex-grow">
+                <p className="text-[var(--color-text-body)] text-[13px] leading-relaxed line-clamp-2 mb-4 flex-grow">
                     {description}
                 </p>
 
                 {/* Price + CTA */}
-                <div className="border-t border-gray-100 pt-4 flex items-center justify-between">
+                <div className="border-t border-[var(--color-border)] pt-4 flex items-center justify-between">
                     {displayPrice > 0 ? (
                         <div>
-                            <span className="font-display text-xl font-bold text-[var(--color-primary)]">
+                            <span className="font-display text-xl font-bold text-[var(--color-accent)]">
                                 PKR {displayPrice.toLocaleString()}
                             </span>
-                            <span className="text-xs text-gray-400 ml-1">{priceLabel}</span>
+                            <span className="text-xs text-[var(--color-text-muted)] ml-1">{priceLabel}</span>
                         </div>
                     ) : (
-                        <span className="text-sm text-gray-400">Contact for price</span>
+                        <span className="text-sm text-[var(--color-text-muted)]">Contact for price</span>
                     )}
 
                     <Link
                         href={detailHref}
-                        className="btn btn-sm bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-light)] transition-all text-[11px]"
+                        className="btn btn-sm bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-hover)] transition-all text-[11px]"
                     >
                         {buttonText}
                     </Link>
