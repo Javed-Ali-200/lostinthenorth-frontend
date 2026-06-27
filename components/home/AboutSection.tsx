@@ -41,7 +41,7 @@ export default function AboutSection() {
                             className="absolute right-4 top-4 w-20 h-20 rounded-full flex flex-col items-center justify-center text-white text-center shadow-lg"
                             style={{ background: 'var(--gradient-primary-light)' }}
                         >
-                            <span className="font-display text-2xl font-bold leading-none">10+</span>
+                            <span className="font-display text-2xl font-bold text-white leading-none">10+</span>
                             <span className="text-xs opacity-80 leading-tight">Years</span>
                         </div>
                     </div>
