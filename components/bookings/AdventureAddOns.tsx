@@ -21,24 +21,24 @@ export default function AdventureAddOns() {
 
     return (
         <div className="space-y-4">
-            <h3 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Adventure Add-ons</h3>
+            <h3 className="text-[10px] font-bold text-[var(--color-text-muted)] uppercase tracking-widest mb-4">Adventure Add-ons</h3>
             {addOns.map((item, i) => {
                 const Icon = item.icon;
                 return (
-                    <div key={i} className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 flex items-start gap-4">
-                        <div className="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center text-[#00748c]">
+                    <div key={i} className="bg-white rounded-2xl p-5 shadow-sm border border-[var(--color-border)] flex items-start gap-4">
+                        <div className="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center text-[var(--color-accent)]">
                             <Icon size={20} />
                         </div>
                         <div className="flex-1">
                             <div className="flex justify-between items-center mb-1">
-                                <h4 className="text-sm font-bold text-[#333]">{item.title}</h4>
+                                <h4 className="text-sm font-bold text-[var(--color-text-heading)]">{item.title}</h4>
                                 <span className={`text-[8px] font-bold px-2 py-0.5 rounded-full ${
-                                    item.status === 'ACTIVE' ? 'bg-[#4fd1c5]/10 text-[#4fd1c5]' : 'bg-[#00748c]/10 text-[#00748c]'
+                                    item.status === 'ACTIVE' ? 'bg-[var(--color-success)]/10 text-[var(--color-success)]' : 'bg-[var(--color-accent)]/10 text-[var(--color-accent)]'
                                 }`}>
                                     {item.status}
                                 </span>
                             </div>
-                            <p className="text-[10px] text-gray-400">{item.description}</p>
+                            <p className="text-[10px] text-[var(--color-text-muted)]">{item.description}</p>
                         </div>
                     </div>
                 );

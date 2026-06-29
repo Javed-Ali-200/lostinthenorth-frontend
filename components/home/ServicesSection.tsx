@@ -16,19 +16,19 @@ function SectionHeader({
     return (
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
             <div>
-                <span className="inline-flex items-center gap-2 text-gold text-sm font-medium uppercase tracking-widest mb-3">
-                    <span className="h-px w-8 bg-gold" />
+                <span className="section-tag">
+                    <span className="section-tag-line" />
                     {tag}
                 </span>
-                <h2 className="font-display text-3xl md:text-4xl font-bold text-dark">
+                <h2 className="font-display text-3xl md:text-4xl font-bold text-[var(--color-dark)]">
                     {title}
                 </h2>
-                <p className="text-gray-500 mt-2 max-w-lg">{subtitle}</p>
+                <p className="text-[var(--color-text-body)] mt-2 max-w-lg">{subtitle}</p>
             </div>
             {href && cta && (
                 <Link
                     href={href}
-                    className="shrink-0 px-5 py-2.5 border-2 border-teal text-teal rounded-xl text-sm font-semibold hover:bg-teal hover:text-white transition-all"
+                    className="btn btn-outline shrink-0"
                 >
                     {cta}
                 </Link>
@@ -42,7 +42,7 @@ export default function ServicesSection({ tours, hotels, cars }: Props) {
         <>
             {/* Featured Tours */}
             {tours.length > 0 && (
-                <section className="section-padding bg-stone-50" id="tours">
+                <section className="section-padding bg-[var(--color-surface)]" id="tours">
                     <div className="container-max">
                         <SectionHeader
                             tag="Adventures Await"
@@ -72,7 +72,7 @@ export default function ServicesSection({ tours, hotels, cars }: Props) {
 
             {/* Popular Hotels */}
             {hotels.length > 0 && (
-                <section className="section-padding bg-white" id="hotels">
+                <section className="section-padding bg-[var(--color-surface-white)]" id="hotels">
                     <div className="container-max">
                         <SectionHeader
                             tag="Rest in Comfort"
@@ -92,6 +92,7 @@ export default function ServicesSection({ tours, hotels, cars }: Props) {
                                     location={hotel.location}
                                     pricePerNight={hotel.pricePerNight}
                                     description={hotel.description}
+                                    rating={hotel.rating}
                                 />
                             ))}
                         </div>
@@ -101,7 +102,7 @@ export default function ServicesSection({ tours, hotels, cars }: Props) {
 
             {/* Car Rentals */}
             {cars.length > 0 && (
-                <section className="section-padding bg-stone-50" id="cars">
+                <section className="section-padding bg-[var(--color-surface)]" id="cars">
                     <div className="container-max">
                         <SectionHeader
                             tag="Travel Your Way"

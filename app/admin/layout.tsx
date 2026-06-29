@@ -12,7 +12,33 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
     useEffect(() => {
         const token = localStorage.getItem('admin_token');
-        if (!token && pathname !== '/admin/login') {
+        
+        let isExpired = false;
+        if (token) {
+            try {
+                const payloadBase64 = token.split('.')[1];
+                if (payloadBase64) {
+                    const decodedJson = atob(payloadBase64.replace(/-/g, '+').replace(/_/g, '/'));
+                    const payload = JSON.parse(decodedJson);
+                    const exp = payload.exp;
+                    if (exp && Date.now() >= exp * 1000) {
+                        isExpired = true;
+                    }
+                } else {
+                    isExpired = true;
+                }
+            } catch (e) {
+                isExpired = true;
+            }
+        }
+
+        if (isExpired) {
+            localStorage.removeItem('admin_token');
+            localStorage.removeItem('admin_refresh_token');
+            localStorage.removeItem('admin_user');
+        }
+
+        if ((!token || isExpired) && pathname !== '/admin/login') {
             router.replace('/admin/login');
         } else {
             setChecking(false);

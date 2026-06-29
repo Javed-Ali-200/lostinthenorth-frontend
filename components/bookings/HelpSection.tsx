@@ -4,44 +4,59 @@ import React from 'react';
 import { MessageSquare, Mail, PhoneCall } from 'lucide-react';
 
 export default function HelpSection() {
+    const items = [
+        {
+            icon: MessageSquare,
+            title: 'Live Chat',
+            sub: '~2 min wait',
+            dark: false,
+            href: '#',
+        },
+        {
+            icon: Mail,
+            title: 'Email Support',
+            sub: 'Same day reply',
+            dark: false,
+            href: 'mailto:lostinthenorth22@gmail.com',
+        },
+        {
+            icon: PhoneCall,
+            title: 'Emergency Line',
+            sub: 'Direct satellite link',
+            dark: true,
+            href: 'tel:+923443845506',
+        },
+    ];
+
     return (
-        <div className="bg-[#e9ecef] py-16 mt-16 rounded-[40px] px-8">
-            <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
+        <div className="mt-12 rounded-2xl overflow-hidden" style={{ background: 'var(--color-surface-alt)' }}>
+            <div className="max-w-5xl mx-auto px-6 py-10 flex flex-col lg:flex-row items-center justify-between gap-8">
                 <div className="text-center lg:text-left">
-                    <h2 className="text-4xl font-display font-medium text-[#333] mb-2">Need help?</h2>
-                    <p className="text-gray-500 font-bold">Our expedition desk is available 24/7 for active travelers.</p>
+                    <h2 className="font-display text-2xl font-bold text-[var(--color-dark)] mb-1">Need Help?</h2>
+                    <p className="text-gray-500 text-sm">Our expedition desk is available 24/7 for active travelers.</p>
                 </div>
 
-                <div className="flex flex-wrap justify-center gap-6">
-                    <div className="bg-white rounded-2xl p-6 flex items-center gap-4 w-64 shadow-sm">
-                        <div className="w-10 h-10 rounded-lg bg-gray-50 flex items-center justify-center text-[#00748c]">
-                            <MessageSquare size={20} />
-                        </div>
-                        <div>
-                            <p className="text-xs font-bold text-[#333]">Live Chat</p>
-                            <p className="text-[10px] text-gray-400">2 min wait</p>
-                        </div>
-                    </div>
-
-                    <div className="bg-white rounded-2xl p-6 flex items-center gap-4 w-64 shadow-sm">
-                        <div className="w-10 h-10 rounded-lg bg-gray-50 flex items-center justify-center text-[#00748c]">
-                            <Mail size={20} />
-                        </div>
-                        <div>
-                            <p className="text-xs font-bold text-[#333]">Email Support</p>
-                            <p className="text-[10px] text-gray-400">Same day reply</p>
-                        </div>
-                    </div>
-
-                    <div className="bg-[#1a1a2e] rounded-2xl p-6 flex items-center gap-4 w-64 shadow-lg text-white">
-                        <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-[#4fd1c5]">
-                            <PhoneCall size={20} />
-                        </div>
-                        <div>
-                            <p className="text-xs font-bold">Emergency Line</p>
-                            <p className="text-[10px] text-gray-400">Direct Satellite Link</p>
-                        </div>
-                    </div>
+                <div className="flex flex-wrap justify-center gap-4">
+                    {items.map(({ icon: Icon, title, sub, dark, href }) => (
+                        <a
+                            key={title}
+                            href={href}
+                            className={`flex items-center gap-3 rounded-xl px-5 py-4 w-56 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md ${
+                                dark ? 'text-white' : 'bg-white text-[var(--color-dark)] border border-gray-100'
+                            }`}
+                            style={dark ? { background: 'var(--gradient-primary-light)' } : {}}
+                        >
+                            <div className={`w-9 h-9 rounded-lg flex items-center justify-center ${
+                                dark ? 'bg-white/10' : 'bg-[var(--color-primary-50)]'
+                            }`}>
+                                <Icon size={18} style={{ color: dark ? 'var(--color-accent)' : 'var(--color-primary)' }} />
+                            </div>
+                            <div>
+                                <p className="text-sm font-bold">{title}</p>
+                                <p className={`text-[10px] ${dark ? 'text-white/50' : 'text-gray-400'}`}>{sub}</p>
+                            </div>
+                        </a>
+                    ))}
                 </div>
             </div>
         </div>
