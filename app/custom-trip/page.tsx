@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Loader2, CheckCircle, Mountain, Calendar, Users, MapPin } from 'lucide-react';
 import { customTripApi } from '@/services/api';
+import { sendCustomTripEmail } from '@/utils/emailjs';
 import toast from 'react-hot-toast';
 import Link from 'next/link';
 
@@ -43,6 +44,21 @@ export default function CustomTripPage() {
                 fd.append('image', values.posterImage[0]);
             }
             await customTripApi.create(fd);
+            // Send EmailJS notification (silent — does not block success state)
+            try {
+                await sendCustomTripEmail({
+                    customerName: values.customerName,
+                    customerEmail: values.customerEmail,
+                    customerPhone: values.customerPhone,
+                    destination: values.destination,
+                    days: Number(values.days),
+                    numberOfPeople: Number(values.numberOfPeople),
+                    startDate: values.startDate,
+                    activities: values.activities,
+                });
+            } catch (emailErr) {
+                console.warn('Email notification failed:', emailErr);
+            }
             setSubmitted(true);
         } catch (err: any) {
             toast.error(err.response?.data?.message || 'Submission failed. Please try again.');
