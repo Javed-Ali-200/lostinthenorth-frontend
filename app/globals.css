@@ -39,6 +39,11 @@
     --color-border-light: rgba(255, 255, 255, 0.05);
     --color-border-white-10: rgba(255, 255, 255, 0.10);
 
+    /* ── Search Bar UI Tokens ────────────────────────────────────── */
+    --color-search-bg: #F9FAFB;
+    --color-search-text: #374151;
+    --color-search-border: #E5E7EB;
+
     /* ── Text ─────────────────────────────────────────────────────── */
     --color-text-heading:   #111111;
     --color-text-body:      #333333;

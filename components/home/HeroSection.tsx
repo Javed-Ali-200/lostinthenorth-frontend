@@ -88,10 +88,10 @@ export default function HeroSection() {
             <div className="w-full max-w-4xl mx-auto z-30">
                 <form
                     onSubmit={handleSearch}
-                    className="relative bg-white rounded-full shadow-[0_10px_35px_rgba(0,0,0,0.08)] border border-[var(--color-border)] p-2 flex flex-col md:flex-row items-center justify-between gap-3 md:gap-0"
+                    className="relative bg-white rounded-2xl md:rounded-full shadow-[0_10px_35px_rgba(0,0,0,0.08)] border border-[var(--color-border)] p-2 flex flex-col md:flex-row items-center justify-between gap-0 md:gap-0"
                 >
                     {/* Destination Input */}
-                    <div className="flex-1 w-full flex items-center gap-3 px-4 py-2">
+                    <div className="flex-1 w-full flex items-center gap-3 px-4 py-3 md:py-2">
                         <MapPin className="text-[var(--color-text-heading)] shrink-0" size={20} />
                         <input
                             type="text"
@@ -102,13 +102,14 @@ export default function HeroSection() {
                         />
                     </div>
 
-                    {/* Divider line (hidden on mobile) */}
+                    {/* Horizontal divider on mobile / Vertical on desktop */}
+                    <div className="block md:hidden w-full h-px bg-gray-100 mx-0" />
                     <div className="hidden md:block h-6 w-px bg-gray-200 self-center" />
 
                     {/* Date Picker Trigger */}
                     <div
                         ref={datePickerRef}
-                        className="relative flex-1 w-full flex items-center gap-3 px-4 py-2 cursor-pointer"
+                        className="relative flex-1 w-full flex items-center gap-3 px-4 py-3 md:py-2 cursor-pointer"
                         onClick={() => setShowDatePicker(!showDatePicker)}
                     >
                         <Calendar className="text-[var(--color-text-heading)] shrink-0" size={20} />
@@ -178,7 +179,7 @@ export default function HeroSection() {
                     {/* Search Button */}
                     <button
                         type="submit"
-                        className="w-full md:w-auto bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-white font-bold px-8 py-3 rounded-full text-sm flex items-center justify-center gap-2 transition-all duration-200 shadow-md hover:shadow-lg active:scale-95 shrink-0 md:mr-1"
+                        className="w-full md:w-auto bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-white font-bold px-8 py-3 rounded-xl md:rounded-full text-sm flex items-center justify-center gap-2 transition-all duration-200 shadow-md hover:shadow-lg active:scale-95 shrink-0 md:mr-1 mt-1 md:mt-0"
                     >
                         <span>Search</span>
                         <Search size={16} />
