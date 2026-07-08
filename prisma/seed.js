@@ -168,6 +168,7 @@ async function main() {
           'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop',
           'https://images.unsplash.com/photo-1518391846015-55a9cc003b25?q=80&w=2070&auto=format&fit=crop',
         ],
+        
         featured: true,
         itinerary: JSON.stringify([
           { day: 1, title: 'Arrival in Gilgit', description: 'Flight to Gilgit. Hotel check-in. City orientation walk along Gilgit Bazaar.' },
