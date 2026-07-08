@@ -37,7 +37,10 @@ export default function TrackBookingClient() {
     return (
         <div className="min-h-screen pb-20" style={{ background: 'var(--color-surface)' }}>
             {/* Hero */}
-            <div className="page-header section-padding">
+            <div 
+                className="page-header section-padding"
+                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop')" }}
+            >
                 <div className="container-max text-center">
                     <span className="section-tag justify-center">
                         <span className="section-tag-line" />

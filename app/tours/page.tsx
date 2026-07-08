@@ -23,7 +23,7 @@ export default async function ToursPage() {
             {/* Page header */}
             <div 
                 className="page-header section-padding"
-                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1587749090392-05f5bb27f5f8?q=80&w=2070&auto=format&fit=crop')" }}
+                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1527668752968-14dc70a27c95?q=80&w=2070&auto=format&fit=crop')" }}
             >
                 <div className="container-max px-4">
                     <span className="section-tag text-white">
