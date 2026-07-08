@@ -77,17 +77,17 @@ export default async function TrekkingPage() {
 
             {/* Search Bar Floating */}
             <div className="container-max relative z-20 -mt-10 px-4">
-                <div className="bg-dark/80 backdrop-blur-xl border border-white/10 p-4 rounded-3xl shadow-2xl flex flex-col md:flex-row gap-4">
+                <div className="bg-white border border-gray-200 p-4 rounded-3xl shadow-[0_10px_35px_rgba(0,0,0,0.08)] flex flex-col md:flex-row gap-4">
                     <div className="flex-1 relative">
                         <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
                         <input 
                             type="text" 
                             placeholder="Search by trek name..."
-                            className="w-full bg-white/5 border border-white/10 rounded-2xl py-3.5 pl-12 pr-4 text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition-all"
+                            className="w-full bg-gray-50 border border-gray-200 rounded-2xl py-3.5 pl-12 pr-4 text-[var(--color-dark)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:bg-white transition-all placeholder:text-gray-400"
                         />
                     </div>
                     <div className="w-full md:w-48">
-                        <select className="w-full bg-white/5 border border-white/10 rounded-2xl py-3.5 px-4 text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition-all appearance-none cursor-pointer">
+                        <select className="w-full bg-gray-50 border border-gray-200 rounded-2xl py-3.5 px-4 text-[var(--color-dark)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:bg-white transition-all appearance-none cursor-pointer">
                             <option value="">All Trekkings</option>
                             <option value="karakoram">Karakoram</option>
                             <option value="himalayas">Himalayas</option>
