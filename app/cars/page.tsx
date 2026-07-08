@@ -22,7 +22,7 @@ export default async function CarsPage() {
         <div>
             <div 
                 className="page-header section-padding"
-                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=2070&auto=format&fit=crop')" }}
+                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1559416523-140ddc3d238c?q=80&w=2070&auto=format&fit=crop')" }}
             >
                 <div className="container-max px-4">
                     <span className="section-tag text-white">

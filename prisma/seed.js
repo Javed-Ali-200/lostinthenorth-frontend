@@ -252,10 +252,10 @@ async function main() {
         name: 'Toyota Land Cruiser V8',
         type: 'SUV',
         pricePerDay: 25000,
-        image: 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=2070',
+        image: 'https://images.unsplash.com/photo-1605810731671-50e509eb050b?q=80&w=2070',
         images: [
-          'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=2070',
-          'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=2070',
+          'https://images.unsplash.com/photo-1605810731671-50e509eb050b?q=80&w=2070',
+          'https://images.unsplash.com/photo-1559416523-140ddc3d238c?q=80&w=2070',
         ],
         features: ['Full-time 4WD', 'AC', 'Satellite GPS', 'Leather Seats', 'Winch', 'First Aid Kit', 'High Ground Clearance', 'Snorkel'],
         seats: 7,
@@ -271,9 +271,9 @@ async function main() {
         name: 'Toyota Land Cruiser Prado',
         type: 'SUV',
         pricePerDay: 18000,
-        image: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=2070',
+        image: 'https://images.unsplash.com/photo-1559416523-140ddc3d238c?q=80&w=2070',
         images: [
-          'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=2070',
+          'https://images.unsplash.com/photo-1559416523-140ddc3d238c?q=80&w=2070',
         ],
         features: ['4WD', 'AC', 'GPS Navigation', 'Bluetooth', 'Roof Rack', 'Mountain-Ready Tires', 'High Clearance'],
         seats: 7,
@@ -520,7 +520,7 @@ async function main() {
         title: 'Weekend 4x4 Prado Deal',
         description:
           'Rent the Land Cruiser Prado for a 3-day weekend and get 20% off! Perfect for a quick Hunza or Naltar escape from Gilgit.',
-        image: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=2070',
+        image: 'https://images.unsplash.com/photo-1559416523-140ddc3d238c?q=80&w=2070',
         price: 43200, // 20% off 3 days × 18,000
         discount: 20,
         validUntil: new Date('2026-09-30'),
