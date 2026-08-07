@@ -227,7 +227,7 @@ function TrekkingFormModal({ trek, onClose, onSave }: { trek: Trekking | null; o
                         </div>
                         <div>
                             <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Max People</label>
-                            <input type="number" value={form.maxGroupSize} onChange={e => setForm(p => ({ ...p, maxGroupSize: e.target.value }))}
+                            <input type="number" value={form.maxGroupSize} onChange={e => setForm(p => ({ ...p, maxGroupSize: parseInt(e.target.value, 10) || 0 }))}
                                 className="w-full border border-gray-200 rounded-2xl px-5 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal/20 focus:border-teal transition-all" />
                         </div>
                     </div>

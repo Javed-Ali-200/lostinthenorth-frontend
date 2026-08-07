@@ -18,8 +18,8 @@ const HUBS = [
         img: 'https://images.unsplash.com/photo-1609139003563-84cdfdf12a49?w=600&q=80',
     },
     {
-        name: 'Arctic Canada',
-        country: 'Naran Kaghan',
+        name: 'Naran Kaghan',
+        country: 'Khyber Pakhtunkhwa',
         tours: 11,
         img: 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=600&q=80',
     },
@@ -40,24 +40,20 @@ const STAT_ROW = [
 
 export default function PrimaryHubs() {
     return (
-        <section className="py-20 md:py-28" style={{ background: '#f8f9fa' }}>
-            <div className="container-max px-6">
+        <section className="section-padding" style={{ background: 'var(--color-surface-alt)' }}>
+            <div className="container-max">
                 {/* Header */}
                 <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
                     <div>
-                        <span
-                            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] mb-3"
-                            style={{ color: '#D4A853' }}
-                        >
-                            <span className="h-px w-8 inline-block" style={{ background: '#D4A853' }} />
+                        <span className="section-tag">
+                            <span className="section-tag-line" />
                             Top Locations
                         </span>
-                        <h2 className="font-display text-3xl md:text-4xl font-bold text-dark">Primary Hubs</h2>
+                        <h2 className="font-display text-3xl md:text-4xl font-bold text-[var(--color-dark)]">Primary Hubs</h2>
                     </div>
                     <Link
                         href="/tours"
-                        className="shrink-0 px-5 py-2.5 rounded-xl text-sm font-semibold border-2 transition-all hover:bg-[#0F4C5C] hover:text-white"
-                        style={{ borderColor: '#0F4C5C', color: '#0F4C5C' }}
+                        className="btn btn-outline shrink-0"
                     >
                         View All →
                     </Link>
@@ -66,8 +62,9 @@ export default function PrimaryHubs() {
                 {/* Hub cards */}
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
                     {HUBS.map((hub) => (
-                        <div
+                        <Link
                             key={hub.name}
+                            href="/tours"
                             className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-sm hover:shadow-xl transition-all duration-500"
                             style={{ height: 260 }}
                         >
@@ -85,29 +82,29 @@ export default function PrimaryHubs() {
                             <div className="absolute bottom-0 inset-x-0 p-4">
                                 <p className="font-display text-lg font-bold text-white leading-tight">{hub.name}</p>
                                 <div className="flex items-center gap-1 mt-1">
-                                    <MapPin size={11} style={{ color: '#D4A853' }} />
+                                    <MapPin size={11} className="text-[var(--color-accent)]" />
                                     <span className="text-xs text-white/70">{hub.country}</span>
                                 </div>
                                 <span
                                     className="inline-block mt-2 text-xs font-semibold px-2.5 py-1 rounded-full"
-                                    style={{ background: 'rgba(212,168,83,0.15)', color: '#D4A853' }}
+                                    style={{ background: 'var(--color-accent-15)', color: 'var(--color-accent)' }}
                                 >
                                     {hub.tours} tours
                                 </span>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
 
                 {/* Bottom stat strip */}
                 <div
                     className="rounded-2xl grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10"
-                    style={{ background: 'linear-gradient(135deg, #0a1f2a, #0F4C5C)' }}
+                    style={{ background: 'var(--gradient-dark)' }}
                 >
                     {STAT_ROW.map(({ value, label }) => (
                         <div key={label} className="py-5 px-6 text-center">
                             <p className="font-display font-bold text-white text-base md:text-lg">{value}</p>
-                            <p className="text-xs mt-0.5" style={{ color: '#D4A853' }}>{label}</p>
+                            <p className="text-xs mt-0.5 text-[var(--color-accent)]">{label}</p>
                         </div>
                     ))}
                 </div>

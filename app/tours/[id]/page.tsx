@@ -1,13 +1,12 @@
 import { notFound } from 'next/navigation';
-import { tourApi } from '@/services/api';
+import prisma from '@/lib/prisma';
 import TourDetailClient from './TourDetailClient';
 
 interface Props { params: Promise<{ id: string }> }
 
 async function getTour(id: string) {
     try {
-        const res = await tourApi.getById(id);
-        return res.data.data;
+        return await prisma.tour.findUnique({ where: { id } });
     } catch {
         return null;
     }

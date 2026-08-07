@@ -128,10 +128,10 @@ export default function CarDetailClient({ car }: { car: Car }) {
     const nextImg = () => setMainImg((i) => (i + 1) % allImages.length);
 
     return (
-        <div className="min-h-screen" style={{ background: '#f4f5f7' }}>
+        <div className="min-h-screen" style={{ background: 'var(--color-bg-page)' }}>
 
             {/* ── HERO BANNER ─────────────────────────────────────────────────── */}
-            <div className="relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0a2533 0%, #0F4C5C 60%, #0a2533 100%)', minHeight: 320 }}>
+            <div className="relative overflow-hidden" style={{ background: 'var(--gradient-hero)', minHeight: 320 }}>
                 {/* background image overlay */}
                 {allImages[0] && (
                     <Image
@@ -143,7 +143,7 @@ export default function CarDetailClient({ car }: { car: Car }) {
                         priority
                     />
                 )}
-                <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(10,37,51,0.7) 0%, rgba(15,76,92,0.85) 100%)' }} />
+                <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(17,17,17,0.85) 100%)' }} />
 
                 <div className="relative container-max px-4 sm:px-6 pt-28 pb-14">
                     <Link
@@ -153,7 +153,7 @@ export default function CarDetailClient({ car }: { car: Car }) {
                         <ArrowLeft size={15} className="group-hover:-translate-x-1 transition-transform" />
                         Back to Fleet
                     </Link>
-                    <span className="block text-xs uppercase tracking-widest mb-3" style={{ color: '#D4A853' }}>
+                    <span className="block text-xs uppercase tracking-widest mb-3" style={{ color: 'var(--color-accent)' }}>
                         Expedition Premium
                     </span>
                     <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-3">
@@ -167,7 +167,7 @@ export default function CarDetailClient({ car }: { car: Car }) {
 
             {/* ── IMAGE GALLERY ────────────────────────────────────────────────── */}
             <div className="container-max px-4 sm:px-6 -mt-6 mb-10">
-                <div className="bg-white rounded-2xl shadow-lg overflow-hidden p-4">
+                <div className="bg-white rounded-2xl shadow-lg overflow-hidden p-4 border border-[var(--color-border)]">
                     {allImages.length > 0 ? (
                         <div className="flex flex-col gap-3">
                             {/* Main image */}
@@ -214,7 +214,7 @@ export default function CarDetailClient({ car }: { car: Car }) {
                                         <button
                                             key={i}
                                             onClick={() => setMainImg(i)}
-                                            className={`relative shrink-0 rounded-lg overflow-hidden transition-all ${i === mainImg ? 'ring-2 ring-offset-1' : 'opacity-60 hover:opacity-90'}`}
+                                            className={`relative shrink-0 rounded-lg overflow-hidden transition-all ${i === mainImg ? 'ring-2 ring-[var(--color-accent)] ring-offset-1' : 'opacity-60 hover:opacity-90'}`}
                                             style={{ width: 80, height: 56 }}
                                         >
                                             <Image src={img} alt="" fill className="object-cover" unoptimized />
@@ -224,7 +224,7 @@ export default function CarDetailClient({ car }: { car: Car }) {
                             )}
                         </div>
                     ) : (
-                        <div className="h-64 flex items-center justify-center text-gray-400 rounded-xl bg-gray-50">
+                        <div className="h-64 flex items-center justify-center text-[var(--color-text-muted)] rounded-xl bg-[var(--color-surface-alt)]">
                             No images available
                         </div>
                     )}
@@ -236,8 +236,8 @@ export default function CarDetailClient({ car }: { car: Car }) {
 
                 {/* ── THE FLEET HEADER ─────────────────────────────────────────── */}
                 <div className="mb-6">
-                    <h2 className="font-display text-2xl md:text-3xl font-bold text-dark">Vehicle Details</h2>
-                    <p className="text-gray-500 text-sm mt-1">Full specifications & expedition gear</p>
+                    <h2 className="font-display text-2xl md:text-3xl font-bold text-[var(--color-text-heading)]">Vehicle Details</h2>
+                    <p className="text-[var(--color-text-muted)] text-sm mt-1">Full specifications & expedition gear</p>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -254,28 +254,28 @@ export default function CarDetailClient({ car }: { car: Car }) {
                             ].map(({ icon: Icon, label, value }) => (
                                 <div
                                     key={label}
-                                    className="bg-white rounded-2xl p-5 text-center shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
+                                    className="bg-white rounded-2xl p-5 text-center shadow-sm border border-[var(--color-border)] hover:shadow-md transition-shadow"
                                 >
                                     <div
                                         className="w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-3"
-                                        style={{ background: 'rgba(15,76,92,0.08)' }}
+                                        style={{ background: 'var(--color-accent-10)' }}
                                     >
-                                        <Icon size={18} style={{ color: '#0F4C5C' }} />
+                                        <Icon size={18} style={{ color: 'var(--color-accent)' }} />
                                     </div>
-                                    <p className="text-xs text-gray-400 mb-1 uppercase tracking-wide">{label}</p>
-                                    <p className="font-semibold text-dark text-sm">{value}</p>
+                                    <p className="text-xs text-[var(--color-text-muted)] mb-1 uppercase tracking-wide">{label}</p>
+                                    <p className="font-semibold text-[var(--color-text-heading)] text-sm">{value}</p>
                                 </div>
                             ))}
                         </div>
 
                         {/* Features / included */}
                         {car.features?.length > 0 && (
-                            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                                <h3 className="font-display font-bold text-lg text-dark mb-4">What&apos;s Included</h3>
+                            <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--color-border)]">
+                                <h3 className="font-display font-bold text-lg text-[var(--color-text-heading)] mb-4">What&apos;s Included</h3>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                                     {car.features.map((f, i) => (
-                                        <div key={i} className="flex items-center gap-2 text-sm text-gray-700">
-                                            <Check size={15} style={{ color: '#0F4C5C' }} className="shrink-0" />
+                                        <div key={i} className="flex items-center gap-2 text-sm text-[var(--color-text-body)]">
+                                            <Check size={15} style={{ color: 'var(--color-accent)' }} className="shrink-0" />
                                             {f}
                                         </div>
                                     ))}
@@ -287,7 +287,7 @@ export default function CarDetailClient({ car }: { car: Car }) {
                         <div>
                             <div
                                 className="rounded-2xl p-8 text-white"
-                                style={{ background: 'linear-gradient(135deg, #0a2533 0%, #0F4C5C 100%)' }}
+                                style={{ background: 'var(--gradient-dark)' }}
                             >
                                 <h2 className="font-display text-2xl font-bold mb-1">Secure Your Expedition</h2>
                                 <p className="text-white/60 text-sm mb-6">
@@ -301,7 +301,7 @@ export default function CarDetailClient({ car }: { car: Car }) {
                                         <p className="text-white/60 mb-3">Your booking number is:</p>
                                         <span
                                             className="inline-block px-5 py-2 rounded-xl font-bold text-lg mb-4"
-                                            style={{ background: 'rgba(212,168,83,0.15)', color: '#D4A853' }}
+                                            style={{ background: 'var(--color-accent-15)', color: 'var(--color-accent)' }}
                                         >
                                             {bookingNumber}
                                         </span>
@@ -310,8 +310,8 @@ export default function CarDetailClient({ car }: { car: Car }) {
                                         </p>
                                         <button
                                             onClick={() => { setStep('form'); reset(); }}
-                                            className="px-6 py-3 rounded-xl font-semibold transition-all"
-                                            style={{ background: '#D4A853', color: '#fff' }}
+                                            className="px-6 py-3 rounded-xl font-semibold transition-all hover:bg-[var(--color-accent-hover)]"
+                                            style={{ background: 'var(--color-accent)', color: 'var(--color-text-on-accent)' }}
                                         >
                                             Make Another Booking
                                         </button>
@@ -324,25 +324,25 @@ export default function CarDetailClient({ car }: { car: Car }) {
                                             <input
                                                 {...register('customerName', { required: 'Name required' })}
                                                 placeholder="Full Name"
-                                                className="w-full rounded-xl px-4 py-3 text-sm text-dark focus:outline-none focus:ring-2 focus:ring-teal/40 transition bg-white/95"
+                                                className="w-full rounded-xl px-4 py-3 text-sm text-[var(--color-text-heading)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/40 transition bg-white/95"
                                             />
                                             <input
                                                 type="email"
                                                 {...register('customerEmail', { required: 'Email required' })}
                                                 placeholder="Email Address"
-                                                className="w-full rounded-xl px-4 py-3 text-sm text-dark focus:outline-none focus:ring-2 focus:ring-teal/40 transition bg-white/95"
+                                                className="w-full rounded-xl px-4 py-3 text-sm text-[var(--color-text-heading)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/40 transition bg-white/95"
                                             />
                                             <input
                                                 {...register('customerPhone', { required: 'Phone required' })}
                                                 placeholder="Phone Number"
-                                                className="w-full rounded-xl px-4 py-3 text-sm text-dark focus:outline-none focus:ring-2 focus:ring-teal/40 transition bg-white/95"
+                                                className="w-full rounded-xl px-4 py-3 text-sm text-[var(--color-text-heading)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/40 transition bg-white/95"
                                             />
                                             <input
                                                 type="number"
                                                 min={1}
                                                 {...register('numberOfPeople', { min: 1 })}
                                                 placeholder="Number of People"
-                                                className="w-full rounded-xl px-4 py-3 text-sm text-dark focus:outline-none focus:ring-2 focus:ring-teal/40 transition bg-white/95"
+                                                className="w-full rounded-xl px-4 py-3 text-sm text-[var(--color-text-heading)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/40 transition bg-white/95"
                                             />
                                         </div>
                                         {/* Dates */}
@@ -353,7 +353,7 @@ export default function CarDetailClient({ car }: { car: Car }) {
                                                     type="date"
                                                     min={today}
                                                     {...register('startDate', { required: 'Start date required' })}
-                                                    className="w-full rounded-xl px-4 py-3 text-sm text-dark focus:outline-none focus:ring-2 focus:ring-teal/40 transition bg-white/95"
+                                                    className="w-full rounded-xl px-4 py-3 text-sm text-[var(--color-text-heading)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/40 transition bg-white/95"
                                                 />
                                             </div>
                                             <div>
@@ -362,7 +362,7 @@ export default function CarDetailClient({ car }: { car: Car }) {
                                                     type="date"
                                                     min={startDate || today}
                                                     {...register('endDate', { required: 'End date required' })}
-                                                    className="w-full rounded-xl px-4 py-3 text-sm text-dark focus:outline-none focus:ring-2 focus:ring-teal/40 transition bg-white/95"
+                                                    className="w-full rounded-xl px-4 py-3 text-sm text-[var(--color-text-heading)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/40 transition bg-white/95"
                                                 />
                                             </div>
                                         </div>
@@ -379,13 +379,13 @@ export default function CarDetailClient({ car }: { car: Car }) {
                                                             type="button"
                                                             onClick={() => toggleAddOn(addon.id)}
                                                             className={`flex flex-col items-start gap-1 rounded-xl px-3 py-3 text-sm border transition-all ${active
-                                                                ? 'border-[#D4A853] bg-[#D4A853]/10 text-white'
+                                                                ? 'border-[var(--color-accent)] bg-[var(--color-accent)]/10 text-white'
                                                                 : 'border-white/10 bg-white/5 text-white/70 hover:bg-white/10'
                                                                 }`}
                                                         >
                                                             <addon.icon size={14} />
                                                             <span className="font-medium leading-tight">{addon.label}</span>
-                                                            <span className="text-xs" style={{ color: '#D4A853' }}>+PKR {addon.price}/day</span>
+                                                            <span className="text-xs" style={{ color: 'var(--color-accent)' }}>+PKR {addon.price}/day</span>
                                                         </button>
                                                     );
                                                 })}
@@ -397,7 +397,7 @@ export default function CarDetailClient({ car }: { car: Car }) {
                                             {...register('specialRequests')}
                                             rows={3}
                                             placeholder="Special requests or notes..."
-                                            className="w-full rounded-xl px-4 py-3 text-sm text-dark focus:outline-none focus:ring-2 focus:ring-teal/40 transition resize-none bg-white/95"
+                                            className="w-full rounded-xl px-4 py-3 text-sm text-[var(--color-text-heading)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/40 transition resize-none bg-white/95"
                                         />
 
                                         {/* Error summary */}
@@ -415,9 +415,9 @@ export default function CarDetailClient({ car }: { car: Car }) {
                         <div className="sticky top-24">
 
                             {/* Booking Summary card */}
-                            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
-                                <div className="px-6 pt-5 pb-4 border-b border-gray-100">
-                                    <p className="text-xs uppercase tracking-widest text-gray-400 font-semibold mb-1">Booking Summary</p>
+                            <div className="bg-white rounded-2xl shadow-lg border border-[var(--color-border)] overflow-hidden">
+                                <div className="px-6 pt-5 pb-4 border-b border-[var(--color-border)]">
+                                    <p className="text-xs uppercase tracking-widest text-[var(--color-text-muted)] font-semibold mb-1">Booking Summary</p>
                                     <div className="flex items-center gap-3 mt-3">
                                         <div className="relative w-14 h-10 rounded-lg overflow-hidden shrink-0 bg-gray-100">
                                             {allImages[0] && (
@@ -425,30 +425,30 @@ export default function CarDetailClient({ car }: { car: Car }) {
                                             )}
                                         </div>
                                         <div>
-                                            <p className="font-semibold text-sm text-dark leading-tight">{car.name}</p>
-                                            <p className="text-xs text-gray-400">{car.type} · {rentalDays} Day{rentalDays !== 1 ? 's' : ''}</p>
+                                            <p className="font-semibold text-sm text-[var(--color-text-heading)] leading-tight">{car.name}</p>
+                                            <p className="text-xs text-[var(--color-text-muted)]">{car.type} · {rentalDays} Day{rentalDays !== 1 ? 's' : ''}</p>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div className="px-6 py-4 space-y-3 text-sm">
-                                    <div className="flex justify-between text-gray-500">
+                                    <div className="flex justify-between text-[var(--color-text-body)]">
                                         <span>Base Rental ({rentalDays} day{rentalDays !== 1 ? 's' : ''})</span>
-                                        <span className="font-medium text-dark">{formatPrice(basePrice)}</span>
+                                        <span className="font-medium text-[var(--color-text-heading)]">{formatPrice(basePrice)}</span>
                                     </div>
                                     {selectedAddOns.length > 0 && (
-                                        <div className="flex justify-between text-gray-500">
+                                        <div className="flex justify-between text-[var(--color-text-body)]">
                                             <span>Add-on Protection</span>
-                                            <span className="font-medium text-dark">{formatPrice(addOnTotal)}</span>
+                                            <span className="font-medium text-[var(--color-text-heading)]">{formatPrice(addOnTotal)}</span>
                                         </div>
                                     )}
-                                    <div className="flex justify-between text-gray-500">
+                                    <div className="flex justify-between text-[var(--color-text-body)]">
                                         <span>Tax & Fees</span>
-                                        <span className="font-medium text-dark">{formatPrice(taxFees)}</span>
+                                        <span className="font-medium text-[var(--color-text-heading)]">{formatPrice(taxFees)}</span>
                                     </div>
-                                    <div className="border-t border-gray-100 pt-3 flex justify-between font-bold text-base">
-                                        <span style={{ color: '#0a2533' }}>Total Price</span>
-                                        <span style={{ color: '#0F4C5C', fontSize: '1.15rem' }}>{formatPrice(totalPrice)}</span>
+                                    <div className="border-t border-[var(--color-border)] pt-3 flex justify-between font-bold text-base">
+                                        <span style={{ color: 'var(--color-text-heading)' }}>Total Price</span>
+                                        <span style={{ color: 'var(--color-accent)', fontSize: '1.15rem' }}>{formatPrice(totalPrice)}</span>
                                     </div>
                                 </div>
 
@@ -456,14 +456,14 @@ export default function CarDetailClient({ car }: { car: Car }) {
                                     {step === 'success' ? (
                                         <div className="text-center py-2">
                                             <CheckCircle size={28} className="text-emerald-500 mx-auto mb-1" />
-                                            <p className="text-sm font-semibold text-dark">Booking #{bookingNumber}</p>
+                                            <p className="text-sm font-semibold text-[var(--color-text-heading)]">Booking #{bookingNumber}</p>
                                         </div>
                                     ) : (
                                         <button
                                             onClick={handleSubmit(onSubmit)}
                                             disabled={!car.available || isSubmitting}
-                                            className="w-full py-3.5 rounded-xl font-semibold text-white text-sm flex items-center justify-center gap-2 transition-all disabled:opacity-50 hover:opacity-90"
-                                            style={{ background: 'linear-gradient(135deg, #0F4C5C, #1a6b82)' }}
+                                            className="w-full py-3.5 rounded-xl font-semibold text-white text-sm flex items-center justify-center gap-2 transition-all disabled:opacity-50 hover:bg-[var(--color-accent-hover)]"
+                                            style={{ background: 'var(--color-accent)' }}
                                         >
                                             {isSubmitting ? (
                                                 <><Loader2 size={16} className="animate-spin" /> Processing…</>
@@ -474,7 +474,7 @@ export default function CarDetailClient({ car }: { car: Car }) {
                                             )}
                                         </button>
                                     )}
-                                    <p className="text-center text-xs text-gray-400 mt-3">
+                                    <p className="text-center text-xs text-[var(--color-text-muted)] mt-3">
                                         Free cancellation up to 48 hrs before pickup
                                     </p>
                                 </div>
@@ -483,7 +483,7 @@ export default function CarDetailClient({ car }: { car: Car }) {
                             {/* Price per day callout */}
                             <div
                                 className="rounded-2xl p-5 text-center mt-4"
-                                style={{ background: 'linear-gradient(135deg, #0a2533, #0F4C5C)' }}
+                                style={{ background: 'var(--gradient-dark)' }}
                             >
                                 <p className="text-white/50 text-xs uppercase tracking-widest mb-1">Daily Rate</p>
                                 <p className="font-display text-3xl font-bold text-white">{formatPrice(car.pricePerDay)}</p>
@@ -496,18 +496,18 @@ export default function CarDetailClient({ car }: { car: Car }) {
 
             {/* ── TRUST PILLARS ────────────────────────────────────────────────── */}
             <div style={{ background: '#fff' }}>
-                <div className="container-max px-4 sm:px-6 py-16">
+                <div className="container-max px-4 sm:px-6 py-16 border-t border-[var(--color-border)]">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {TRUST.map(({ icon: Icon, title, desc }) => (
                             <div key={title} className="text-center">
                                 <div
                                     className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4"
-                                    style={{ background: 'rgba(15,76,92,0.08)' }}
+                                    style={{ background: 'var(--color-accent-10)' }}
                                 >
-                                    <Icon size={24} style={{ color: '#0F4C5C' }} />
+                                    <Icon size={24} style={{ color: 'var(--color-accent)' }} />
                                 </div>
-                                <h4 className="font-display font-bold text-dark mb-2">{title}</h4>
-                                <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
+                                <h4 className="font-display font-bold text-[var(--color-text-heading)] mb-2">{title}</h4>
+                                <p className="text-[var(--color-text-muted)] text-sm leading-relaxed">{desc}</p>
                             </div>
                         ))}
                     </div>
@@ -553,7 +553,7 @@ export default function CarDetailClient({ car }: { car: Car }) {
                                 key={i}
                                 onClick={(e) => { e.stopPropagation(); setLightbox(i); }}
                                 className={`h-2 rounded-full transition-all ${i === lightbox ? 'w-6' : 'w-2 bg-white/40'}`}
-                                style={i === lightbox ? { background: '#D4A853', width: 24 } : {}}
+                                style={i === lightbox ? { background: 'var(--color-accent)', width: 24 } : {}}
                             />
                         ))}
                     </div>

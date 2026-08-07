@@ -16,6 +16,7 @@ export default function AdminLoginPage() {
 
     const onSubmit = async ({ email, password }: FormValues) => {
         try {
+            const res = await adminApi.login(email, password);
             const { token, refreshToken, admin } = res.data.data;
             localStorage.setItem('admin_token', token);
             localStorage.setItem('admin_refresh_token', refreshToken);

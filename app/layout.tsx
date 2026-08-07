@@ -42,7 +42,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable} ${dancingScript.variable}`}>
-      <body className="font-inter bg-stone-50 text-gray-900 antialiased">
+      <body className="font-inter antialiased" style={{ background: 'var(--color-bg-page)', color: 'var(--color-text-body)' }}>
         <TopBar />
         <Navbar />
         <main>{children}</main>
